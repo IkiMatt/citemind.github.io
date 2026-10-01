@@ -9,22 +9,22 @@
  * - Se la data è passata -> si sposta automaticamente nella tabella "Archivio Incontri Precedenti".
  */
 
-/*const CITEMIND_EVENTS = [
+const CITEMIND_EVENTS = [
   {
     id: 1,
-    date: "2026-10-15",               // Formato: AAAA-MM-GG (usato per l'ordinamento automatico)
-    time: "18:30 CET (UTC+1)",         // Orario dell'incontro
+    date: "2026-10-13",               // Formato: AAAA-MM-GG (usato per l'ordinamento automatico)
+    time: "21:00 CET (UTC+1)",         // Orario dell'incontro
     duration: "~45-60 min",            // Durata indicativa
     platform: "Google Meet",           // Piattaforma (es. Google Meet, Jitsi, Zoom)
-    meet_url: "https://meet.google.com/", // Link alla stanza della videochiamata
+    meet_url: "https://meet.google.com/czq-seun-dwb", // Link alla stanza della videochiamata
     
     // Titolo (Italiano e Inglese)
-    title_it: "CiteMind Community Call #1 – Presentazione Roadmap & Q&A",
-    title_en: "CiteMind Community Call #1 – Roadmap Walkthrough & Live Q&A",
+    title_it: "CiteMind Community Call #1 – Introduzione a Citemind",
+    title_en: "CiteMind Community Call #1 – Introduction to Citemind",
     
     // Descrizione (Italiano e Inglese)
-    desc_it: "In questo primo incontro aperto presenteremo le funzionalità introdotte nella versione 0.3.4 (pipeline avanzata, esportazioni personalizzate e Knowledge Graph) e raccoglieremo feedback e desideri della community per le prossime release.",
-    desc_en: "In this first open session we will walk through the latest 0.3.4 updates (advanced import pipeline, custom exports, and Knowledge Graph) and gather community feedback and feature requests for upcoming releases.",
+    desc_it: "In questo primo incontro aperto presenteremo le funzionalità, raccoglieremo feedback e desideri della community per le prossime release.",
+    desc_en: "In this first open session and gather community feedback and feature requests for upcoming releases.",
     
     // Link facoltativi
     discussion_url: "https://github.com/IkiMatt/CiteMind/discussions", // Link discussione GitHub
