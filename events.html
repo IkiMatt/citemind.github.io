@@ -13,6 +13,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <!-- Script per la gestione eventi e lingua -->
+  <script src="events-data.js"></script>
   <script src="lang.js"></script>
 </head>
 <body>
@@ -61,69 +63,32 @@
   </div>
 </section>
 
-<!-- ── Prossimo Evento (In Primo Piano) ─────────────────────── -->
+<!-- ── Prossimi Eventi (Renderizzati da events-data.js) ───────── -->
 <section>
   <div class="container">
     <div class="section-label">
-      <span class="lang-it">In evidenza</span>
-      <span class="lang-en">Featured</span>
+      <span class="lang-it">In programma</span>
+      <span class="lang-en">Scheduled</span>
     </div>
     <h2 class="section-title">
-      <span class="lang-it">Prossimo Incontro Programmato</span>
-      <span class="lang-en">Next Scheduled Meetup</span>
+      <span class="lang-it">Prossimi Incontri</span>
+      <span class="lang-en">Upcoming Meetups</span>
     </h2>
     <p class="section-sub">
-      <span class="lang-it">Tutti gli incontri sono aperti e gratuiti. Non serve alcuna iscrizione formale: basta collegarsi al link della chiamata.</span>
-      <span class="lang-en">All calls are open and free. No formal registration required: simply join via the meeting link.</span>
+      <span class="lang-it">Tutti gli incontri sono aperti e gratuiti. Non serve alcuna iscrizione formale: basta collegarsi al link all'orario indicato.</span>
+      <span class="lang-en">All calls are open and free. No formal registration required: simply join via the link at the scheduled time.</span>
     </p>
 
-    <!-- Event Card -->
-    <div class="event-card">
-      <div class="event-date-box">
-        <div class="month">
-          <span class="lang-it">PROSSIMAMENTE</span>
-          <span class="lang-en">UPCOMING</span>
-        </div>
-        <div class="day">#1</div>
-        <div class="time">18:30 CET (UTC+1)</div>
-      </div>
-
-      <div class="event-content">
-        <div class="event-meta">
-          <span class="tag tag-green">
-            <span class="lang-it">🔴 Videochiamata Aperta</span>
-            <span class="lang-en">🔴 Open Video Call</span>
-          </span>
-          <span class="tag">Google Meet / Jitsi</span>
-          <span style="font-size: 0.85rem; color: var(--fg-muted);">~45-60 min</span>
-        </div>
-
-        <h3 class="event-title">
-          <span class="lang-it">CiteMind Community Call #1 – Presentazione Roadmap &amp; Q&amp;A</span>
-          <span class="lang-en">CiteMind Community Call #1 – Roadmap Walkthrough &amp; Live Q&amp;A</span>
-        </h3>
-
-        <p class="event-desc">
-          <span class="lang-it">In questo primo incontro aperto presenteremo le funzionalità introdotte nella versione 0.3.4 (pipeline avanzata, esportazioni personalizzate e Knowledge Graph) e raccoglieremo feedback e desideri della community per le prossime release. Ci sarà ampio spazio per domande e risposte libere.</span>
-          <span class="lang-en">In this first open session we will walk through the latest 0.3.4 updates (advanced import pipeline, custom exports, and Knowledge Graph) and gather community feedback and feature requests for upcoming releases, followed by an open Q&amp;A session.</span>
-        </p>
-
-        <div class="event-actions">
-          <!-- Modifica questo link con l'URL della stanza Google Meet / Jitsi / Zoom -->
-          <a href="https://meet.google.com/" target="_blank" rel="noopener" class="btn btn-primary">
-            <span class="lang-it">📹 Entra nella Videochiamata</span>
-            <span class="lang-en">📹 Join the Video Call</span>
-          </a>
-          <a href="https://github.com/IkiMatt/CiteMind/discussions" target="_blank" rel="noopener" class="btn btn-secondary">
-            <span class="lang-it">💬 Proponi una domanda su GitHub</span>
-            <span class="lang-en">💬 Suggest a topic on GitHub</span>
-          </a>
-        </div>
+    <!-- Container popolato automaticamente da events-data.js -->
+    <div id="upcoming-events-container">
+      <!-- Fallback statico prima dell'esecuzione dello script -->
+      <div class="info-box">
+        <p>Caricamento eventi in corso...</p>
       </div>
     </div>
 
     <!-- Alert / Tips Box -->
-    <div class="info-box">
+    <div class="info-box" style="margin-top: 24px;">
       <p>
         <span class="lang-it">💡 <strong>Promemoria:</strong> Il link di accesso alla stanza virtuale sarà attivo circa 10 minuti prima dell'inizio. Puoi partecipare con microfono e webcam oppure semplicemente ascoltare e interagire nella chat testuale.</span>
         <span class="lang-en">💡 <strong>Reminder:</strong> The meeting room link will be live about 10 minutes prior to start time. You are welcome to join with audio/video or simply listen in and participate via text chat.</span>
@@ -225,7 +190,7 @@
   </div>
 </section>
 
-<!-- ── Come partecipare & Proposte ─────────────────────────── -->
+<!-- ── Partecipazione & Archivio ──────────────────────────── -->
 <section>
   <div class="container">
     <div class="section-label">
@@ -233,8 +198,8 @@
       <span class="lang-en">Participation</span>
     </div>
     <h2 class="section-title">
-      <span class="lang-it">Come partecipare o proporre un argomento</span>
-      <span class="lang-en">How to join or propose a topic</span>
+      <span class="lang-it">Come proporre un argomento</span>
+      <span class="lang-en">How to propose a topic</span>
     </h2>
     <p class="section-sub">
       <span class="lang-it">Tutti possono contribuire a definire l'agenda dei prossimi incontri.</span>
@@ -249,8 +214,8 @@
           <span class="lang-en">1. Save the date</span>
         </h3>
         <p>
-          <span class="lang-it">Gli incontri vengono annunciati con anticipo su questa pagina e nella sezione <a href="https://github.com/IkiMatt/CiteMind/discussions" target="_blank" rel="noopener">GitHub Discussions</a>. Aggiungi il link al tuo calendario personale per non perderlo.</span>
-          <span class="lang-en">Meetups are announced in advance on this page and on <a href="https://github.com/IkiMatt/CiteMind/discussions" target="_blank" rel="noopener">GitHub Discussions</a>. Bookmark this link to stay up to date.</span>
+          <span class="lang-it">Gli incontri vengono annunciati su questa pagina e nella sezione <a href="https://github.com/IkiMatt/CiteMind/discussions" target="_blank" rel="noopener">GitHub Discussions</a>. Aggiungi il link al tuo calendario personale per non perderlo.</span>
+          <span class="lang-en">Meetups are announced on this page and on <a href="https://github.com/IkiMatt/CiteMind/discussions" target="_blank" rel="noopener">GitHub Discussions</a>. Bookmark this link to stay up to date.</span>
         </p>
       </div>
 
@@ -292,19 +257,8 @@
               </th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td><span class="tag">In arrivo / Upcoming</span></td>
-              <td>
-                <strong>CiteMind Call #1</strong> — 
-                <span class="lang-it">Lancio della community e panoramica versione 0.3.4</span>
-                <span class="lang-en">Community kickoff and version 0.3.4 overview</span>
-              </td>
-              <td>
-                <span class="lang-it">Note e link saranno pubblicati qui dopo l'incontro</span>
-                <span class="lang-en">Notes and links will be published here after the call</span>
-              </td>
-            </tr>
+          <tbody id="past-events-tbody">
+            <!-- Popolato automaticamente da events-data.js -->
           </tbody>
         </table>
       </div>
@@ -336,6 +290,155 @@
     </div>
   </div>
 </footer>
+
+<!-- ── Script di rendering automatico degli eventi ────────── -->
+<script>
+(function() {
+  function renderEvents() {
+    const upcomingContainer = document.getElementById('upcoming-events-container');
+    const pastTbody = document.getElementById('past-events-tbody');
+    if (!upcomingContainer || !pastTbody) return;
+
+    const todayStr = new Date().toISOString().split('T')[0];
+    const events = (typeof CITEMIND_EVENTS !== 'undefined' && Array.isArray(CITEMIND_EVENTS)) ? CITEMIND_EVENTS : [];
+
+    // Suddivisione tra eventi futuri/oggi ed eventi passati
+    const upcoming = events.filter(e => !e.date || e.date >= todayStr).sort((a, b) => (a.date || '').localeCompare(b.date || ''));
+    const past = events.filter(e => e.date && e.date < todayStr).sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+
+    // Render Prossimi Eventi
+    if (upcoming.length === 0) {
+      upcomingContainer.innerHTML = `
+        <div class="info-box" style="text-align: center; padding: 36px 20px;">
+          <p style="font-size: 1.1rem; color: var(--fg-base); margin-bottom: 8px;">
+            <span class="lang-it">📅 Nessun incontro programmato al momento.</span>
+            <span class="lang-en">📅 No upcoming calls scheduled at the moment.</span>
+          </p>
+          <p>
+            <span class="lang-it">I nuovi appuntamenti saranno annunciati su questa pagina e nelle <a href="https://github.com/IkiMatt/CiteMind/discussions" target="_blank" rel="noopener">GitHub Discussions</a>.</span>
+            <span class="lang-en">New meetups will be announced on this page and on <a href="https://github.com/IkiMatt/CiteMind/discussions" target="_blank" rel="noopener">GitHub Discussions</a>.</span>
+          </p>
+        </div>
+      `;
+    } else {
+      upcomingContainer.innerHTML = upcoming.map((e, idx) => {
+        let monthIT = "IN PROGRAMMA";
+        let monthEN = "UPCOMING";
+        let day = `#${e.id || idx + 1}`;
+        
+        if (e.date) {
+          const parts = e.date.split('-');
+          if (parts.length === 3) {
+            const year = parts[0];
+            const m = parseInt(parts[1], 10);
+            day = parts[2];
+            const mIT = ["GEN", "FEB", "MAR", "APR", "MAG", "GIU", "LUG", "AGO", "SET", "OTT", "NOV", "DIC"];
+            const mEN = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+            monthIT = `${mIT[m - 1] || parts[1]} ${year}`;
+            monthEN = `${mEN[m - 1] || parts[1]} ${year}`;
+          }
+        }
+
+        return `
+          <div class="event-card">
+            <div class="event-date-box">
+              <div class="month">
+                <span class="lang-it">${monthIT}</span>
+                <span class="lang-en">${monthEN}</span>
+              </div>
+              <div class="day">${day}</div>
+              <div class="time">${e.time || ''}</div>
+            </div>
+
+            <div class="event-content">
+              <div class="event-meta">
+                <span class="tag tag-green">
+                  <span class="lang-it">🔴 Videochiamata Aperta</span>
+                  <span class="lang-en">🔴 Open Video Call</span>
+                </span>
+                <span class="tag">${e.platform || 'Online Meet'}</span>
+                ${e.duration ? `<span style="font-size: 0.85rem; color: var(--fg-muted);">${e.duration}</span>` : ''}
+              </div>
+
+              <h3 class="event-title">
+                <span class="lang-it">${e.title_it || e.title_en}</span>
+                <span class="lang-en">${e.title_en || e.title_it}</span>
+              </h3>
+
+              <p class="event-desc">
+                <span class="lang-it">${e.desc_it || e.desc_en}</span>
+                <span class="lang-en">${e.desc_en || e.desc_it}</span>
+              </p>
+
+              <div class="event-actions">
+                ${e.meet_url ? `
+                  <a href="${e.meet_url}" target="_blank" rel="noopener" class="btn btn-primary">
+                    <span class="lang-it">📹 Entra nella Videochiamata</span>
+                    <span class="lang-en">📹 Join the Video Call</span>
+                  </a>
+                ` : ''}
+                ${e.discussion_url ? `
+                  <a href="${e.discussion_url}" target="_blank" rel="noopener" class="btn btn-secondary">
+                    <span class="lang-it">💬 Proponi un argomento su GitHub</span>
+                    <span class="lang-en">💬 Suggest a topic on GitHub</span>
+                  </a>
+                ` : ''}
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Render Eventi Passati
+    if (past.length === 0) {
+      pastTbody.innerHTML = `
+        <tr>
+          <td colspan="3" style="text-align: center; color: var(--fg-muted); padding: 22px;">
+            <span class="lang-it">Nessun incontro passato registrato in archivio.</span>
+            <span class="lang-en">No past meetups recorded in the archive yet.</span>
+          </td>
+        </tr>
+      `;
+    } else {
+      pastTbody.innerHTML = past.map(e => `
+        <tr>
+          <td><span class="tag">${e.date || '—'}</span></td>
+          <td>
+            <strong style="color: var(--fg-base);">
+              <span class="lang-it">${e.title_it || e.title_en}</span>
+              <span class="lang-en">${e.title_en || e.title_it}</span>
+            </strong>
+            ${(e.desc_it || e.desc_en) ? `
+              <div style="font-size: 0.85rem; color: var(--fg-muted); margin-top: 4px;">
+                <span class="lang-it">${e.desc_it || ''}</span>
+                <span class="lang-en">${e.desc_en || ''}</span>
+              </div>
+            ` : ''}
+          </td>
+          <td>
+            ${e.notes_url ? `
+              <a href="${e.notes_url}" target="_blank" rel="noopener" class="btn btn-secondary" style="padding: 5px 12px; font-size: 0.8rem;">
+                <span class="lang-it">📄 Note &amp; Risorse</span>
+                <span class="lang-en">📄 Notes &amp; Resources</span>
+              </a>
+            ` : `
+              <span style="color: var(--fg-muted); font-size: 0.85rem;">—</span>
+            `}
+          </td>
+        </tr>
+      `).join('');
+    }
+  }
+
+  // Esegui il render prima che lang.js attivi la lingua (o appena pronto il DOM)
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', renderEvents);
+  } else {
+    renderEvents();
+  }
+})();
+</script>
 
 </body>
 </html>
