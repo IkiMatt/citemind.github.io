@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>
+    <span class="lang-it">Documentazione – CiteMind</span>
+    <span class="lang-en">Documentation – CiteMind</span>
+  </title>
+  <meta name="description" class="lang-it" content="Documentazione completa di CiteMind: Quick Start, import riferimenti, stili citazione, Ollama AI, Knowledge Graph, export e shortcut." />
+  <meta name="description" class="lang-en" content="Complete documentation of CiteMind: Quick Start, importing references, citation styles, Ollama AI, Knowledge Graph, export and shortcuts." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="lang.js"></script>
+</head>
+<body>
+
+<!-- ── Header ─────────────────────────────────────────────── -->
+<header>
+  <nav class="container">
+    <a href="index.html" class="nav-logo">Cite<span class="logo-accent">Mind</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="pipeline.html">Pipeline</a></li>
+      <li><a href="download.html">Download</a></li>
+      <li class="dropdown">
+        <span>Contributor <span class="dropdown-caret">▾</span></span>
+        <ul class="dropdown-menu">
+          <li><a href="contributor.html"><span class="lang-it">Come contribuire</span><span class="lang-en">How to contribute</span></a></li>
+          <li><a href="creator.html"><span class="lang-it">Il Creatore</span><span class="lang-en">The Creator</span></a></li>
+        </ul>
+      </li>
+      <li><a href="doc.html" class="active">Doc</a></li>
+      <li><a href="licence.html"><span class="lang-it">Licenza</span><span class="lang-en">Licence</span></a></li>
+      <li class="lang-switcher">
+        <button class="lang-btn" data-lang="it">IT</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ── Page Hero ──────────────────────────────────────────── -->
+<section class="page-hero">
+  <div class="container">
+    <div class="section-label">
+      <span class="lang-it">Documentazione</span>
+      <span class="lang-en">Documentation</span>
+    </div>
+    <h1>
+      <span class="lang-it">Guida a CiteMind</span>
+      <span class="lang-en">CiteMind Guide</span>
+    </h1>
+    <p>
+      <span class="lang-it">Tutto quello che devi sapere per iniziare a usare CiteMind e sfruttarne al massimo le funzionalità avanzate.</span>
+      <span class="lang-en">Everything you need to know to start using CiteMind and make the most of its advanced features.</span>
+    </p>
+  </div>
+</section>
+
+<!-- ── Docs Content ────────────────────────────────────────── -->
+<section>
+  <div class="container" style="max-width: 860px;">
+
+    <!-- Quick Start -->
+    <div class="doc-section" id="quickstart">
+      <h2>🚀 Quick Start</h2>
+      <p>
+        <span class="lang-it">Avvia CiteMind lanciando <code>python main.py</code> (da sorgente) o il file <code>CiteMind.exe</code> (Windows). Al primo avvio viene creato automaticamente il database SQLite nella cartella utente.</span>
+        <span class="lang-en">Start CiteMind by running <code>python main.py</code> (from source) or the <code>CiteMind.exe</code> file (Windows). On first launch, the SQLite database is automatically created in the user folder.</span>
+      </p>
+
+      <h3>
+        <span class="lang-it">Primo import in 3 passi</span>
+        <span class="lang-en">First import in 3 steps</span>
+      </h3>
+      <ul>
+        <li>
+          <strong>1.</strong> 
+          <span class="lang-it">Trascina un file PDF direttamente sulla finestra principale di CiteMind.</span>
+          <span class="lang-en">Drag and drop a PDF file directly onto the main window of CiteMind.</span>
+        </li>
+        <li>
+          <strong>2.</strong> 
+          <span class="lang-it">La pipeline di import si avvia automaticamente: estrazione metadati, ricerca DOI, arricchimento API.</span>
+          <span class="lang-en">The import pipeline starts automatically: metadata extraction, DOI search, API enrichment.</span>
+        </li>
+        <li>
+          <strong>3.</strong> 
+          <span class="lang-it">La voce bibliografica appare nella lista, completa di titolo, autori, anno, journal e abstract.</span>
+          <span class="lang-en">The bibliographic entry appears in the list, complete with title, authors, year, journal and abstract.</span>
+        </li>
+      </ul>
+
+      <div class="info-box">
+        <p>💡 
+          <span class="lang-it"><strong>Suggerimento:</strong> Per ottenere risultati migliori, usa PDF con testo selezionabile (non scansioni). Per PDF scansionati è disponibile l'OCR tramite Tesseract, attivabile nelle Impostazioni.</span>
+          <span class="lang-en"><strong>Tip:</strong> For best results, use PDFs with selectable text (not scans). For scanned PDFs, OCR via Tesseract is available, which can be activated in the Settings.</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- Importare riferimenti -->
+    <div class="doc-section" id="import">
+      <h2>
+        <span class="lang-it">📥 Importare riferimenti</span>
+        <span class="lang-en">📥 Importing references</span>
+      </h2>
+      <p>
+        <span class="lang-it">CiteMind supporta molteplici modalità di import, adatte a diversi flussi di lavoro accademici.</span>
+        <span class="lang-en">CiteMind supports multiple import modes, suitable for different academic workflows.</span>
+      </p>
+
+      <h3>Drag &amp; Drop PDF</h3>
+      <p>
+        <span class="lang-it">Il metodo più rapido. Trascina uno o più PDF sulla finestra principale. CiteMind processa i file in parallelo e mostra il progresso per ciascuno. Puoi trascinare anche intere cartelle.</span>
+        <span class="lang-en">The fastest method. Drag one or more PDFs onto the main window. CiteMind processes the files in parallel and shows the progress for each. You can also drag entire folders.</span>
+      </p>
+
+      <h3>
+        <span class="lang-it">DOI diretto</span>
+        <span class="lang-en">Direct DOI</span>
+      </h3>
+      <p>
+        <span class="lang-it">Incolla un DOI nel campo di ricerca rapida (in alto nella toolbar) e premi <kbd>Invio</kbd>. CiteMind interroga Crossref e recupera tutti i metadati disponibili in pochi secondi.</span>
+        <span class="lang-en">Paste a DOI into the quick search field (top of the toolbar) and press <kbd>Enter</kbd>. CiteMind queries Crossref and retrieves all available metadata in seconds.</span>
+      </p>
+
+      <h3>
+        <span class="lang-it">File BibTeX (.bib)</span>
+        <span class="lang-en">BibTeX files (.bib)</span>
+      </h3>
+      <p>
+        <span class="lang-it">Vai su <strong>File → Importa → BibTeX</strong>. Seleziona il file <code>.bib</code>. CiteMind importa tutte le voci del file, preservando i campi già presenti e arricchendo quelli mancanti dove possibile.</span>
+        <span class="lang-en">Go to <strong>File → Import → BibTeX</strong>. Select the <code>.bib</code> file. CiteMind imports all entries from the file, preserving existing fields and enriching missing ones where possible.</span>
+      </p>
+
+      <h3>
+        <span class="lang-it">File RIS</span>
+        <span class="lang-en">RIS files</span>
+      </h3>
+      <p>
+        <span class="lang-it">Compatibile con l'export di Zotero, Mendeley, EndNote e molte banche dati accademiche. Usa <strong>File → Importa → RIS</strong>.</span>
+        <span class="lang-en">Compatible with Zotero, Mendeley, EndNote export and many academic databases. Use <strong>File → Import → RIS</strong>.</span>
+      </p>
+
+      <h3>CSV batch</h3>
+      <p>
+        <span class="lang-it">Importa da un foglio di calcolo. Il formato CSV richiede almeno le colonne <code>title</code> e <code>authors</code>. Puoi mappare le colonne personalizzate nella finestra di preview prima di confermare l'import.</span>
+        <span class="lang-en">Import from a spreadsheet. The CSV format requires at least the <code>title</code> and <code>authors</code> columns. You can map custom columns in the preview window before confirming the import.</span>
+      </p>
+
+      <h3>
+        <span class="lang-it">URL web</span>
+        <span class="lang-en">Web URL</span>
+      </h3>
+      <p>
+        <span class="lang-it">Per aggiungere risorse web alla sitografia, incolla l'URL nel campo DOI/URL e seleziona il tipo "Sitography". CiteMind recupera automaticamente titolo, autore e data dalla pagina.</span>
+        <span class="lang-en">To add web resources to the sitography, paste the URL into the DOI/URL field and select the "Sitography" type. CiteMind automatically retrieves the title, author and date from the page.</span>
+      </p>
+    </div>
+
+    <!-- Tipi di Entry -->
+    <div class="doc-section" id="entry-types">
+      <h2>
+        <span class="lang-it">📚 Tipi di voce (Entry Types)</span>
+        <span class="lang-en">📚 Entry Types</span>
+      </h2>
+      <p>
+        <span class="lang-it">Ogni voce in CiteMind appartiene a uno dei tre tipi principali, selezionabile al momento della creazione o modifica.</span>
+        <span class="lang-en">Each entry in CiteMind belongs to one of three main types, selectable upon creation or modification.</span>
+      </p>
+
+      <h3>Bibliography</h3>
+      <p>
+        <span class="lang-it">Per fonti accademiche tradizionali. Include tutti i campi standard (titolo, autori, anno, journal/editore, volume, pagine, DOI, abstract, keyword). Supporta i seguenti pub types:</span>
+        <span class="lang-en">For traditional academic sources. Includes all standard fields (title, authors, year, journal/publisher, volume, pages, DOI, abstract, keywords). Supports the following pub types:</span>
+      </p>
+      <div style="display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0 16px;">
+        <span class="tag">article</span>
+        <span class="tag">book</span>
+        <span class="tag">chapter</span>
+        <span class="tag">conference</span>
+        <span class="tag">report</span>
+      </div>
+
+      <h3>Sitography</h3>
+      <p>
+        <span class="lang-it">Per risorse web e contenuti digitali. Campi specifici: URL, data di accesso, nome del sito, autore (se disponibile). Pub type: <span class="tag">web</span>. La data di accesso viene registrata automaticamente al momento dell'import.</span>
+        <span class="lang-en">For web resources and digital content. Specific fields: URL, access date, site name, author (if available). Pub type: <span class="tag">web</span>. The access date is recorded automatically upon import.</span>
+      </p>
+
+      <h3>
+        <span class="lang-it">Tesi</span>
+        <span class="lang-en">Thesis</span>
+      </h3>
+      <p>
+        <span class="lang-it">Per tesi accademiche (laurea triennale, magistrale, dottorato, specializzazione). Campi specifici: ateneo, relatore, correlatore, anno accademico, tipo di tesi, dipartimento. Pub type: <span class="tag">thesis</span>.</span>
+        <span class="lang-en">For academic theses (bachelor, master, PhD). Specific fields: institution, supervisor, co-supervisor, academic year, thesis type, department. Pub type: <span class="tag">thesis</span>.</span>
+      </p>
+    </div>
+
+    <!-- Stili di citazione -->
+    <div class="doc-section" id="citation-styles">
+      <h2>
+        <span class="lang-it">📄 Stili di citazione</span>
+        <span class="lang-en">📄 Citation Styles</span>
+      </h2>
+      <p>
+        <span class="lang-it">CiteMind genera citazioni formattate pronte per essere copiate in qualsiasi documento accademico.</span>
+        <span class="lang-en">CiteMind generates formatted citations ready to be copied into any academic document.</span>
+      </p>
+
+      <h3>
+        <span class="lang-it">Stili integrati</span>
+        <span class="lang-en">Built-in styles</span>
+      </h3>
+      <div class="table-wrap" style="margin-bottom: 20px;">
+        <table>
+          <thead>
+            <tr>
+              <th>
+                <span class="lang-it">Stile</span>
+                <span class="lang-en">Style</span>
+              </th>
+              <th>
+                <span class="lang-it">Descrizione</span>
+                <span class="lang-en">Description</span>
+              </th>
+              <th>
+                <span class="lang-it">Uso tipico</span>
+                <span class="lang-en">Typical use</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>APA 7th</td>
+              <td>American Psychological Association, settima edizione</td>
+              <td>
+                <span class="lang-it">Psicologia, scienze sociali, educazione</span>
+                <span class="lang-en">Psychology, social sciences, education</span>
+              </td>
+            </tr>
+            <tr>
+              <td>MLA</td>
+              <td>Modern Language Association</td>
+              <td>
+                <span class="lang-it">Letteratura, lingue, studi culturali</span>
+                <span class="lang-en">Literature, languages, cultural studies</span>
+              </td>
+            </tr>
+            <tr>
+              <td>Chicago</td>
+              <td>Chicago Author-Date e Note-Bibliography</td>
+              <td>
+                <span class="lang-it">Storia, arti, umanistica</span>
+                <span class="lang-en">History, arts, humanities</span>
+              </td>
+            </tr>
+            <tr>
+              <td>Harvard</td>
+              <td>Harvard referencing (author-date)</td>
+              <td>
+                <span class="lang-it">Scienze naturali, economia, ingegneria</span>
+                <span class="lang-en">Natural sciences, economics, engineering</span>
+              </td>
+            </tr>
+            <tr>
+              <td>Preistoria Alpina</td>
+              <td>
+                <span class="lang-it">Stile specifico per la rivista scientifica Preistoria Alpina</span>
+                <span class="lang-en">Specific style for the scientific journal Preistoria Alpina</span>
+              </td>
+              <td>
+                <span class="lang-it">Archeologia, paleoantropologia alpina</span>
+                <span class="lang-en">Archaeology, alpine paleoanthropology</span>
+              </td>
+            </tr>
+            <tr>
+              <td>Custom</td>
+              <td>
+                <span class="lang-it">Stile definito dall'utente tramite template configurabile</span>
+                <span class="lang-en">User-defined style via configurable template</span>
+              </td>
+              <td>
+                <span class="lang-it">Riviste con requisiti specifici</span>
+                <span class="lang-en">Journals with specific requirements</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>
+        <span class="lang-it">Usare gli stili</span>
+        <span class="lang-en">Using styles</span>
+      </h3>
+      <p>
+        <span class="lang-it">Seleziona una o più voci nella lista, scegli lo stile dal menu a tendina in toolbar e clicca <strong>"Copia citazione"</strong>. La citazione formattata viene copiata negli appunti, pronta per essere incollata in Word, LibreOffice o qualsiasi editor.</span>
+        <span class="lang-en">Select one or more entries in the list, choose the style from the dropdown menu in the toolbar and click <strong>"Copy citation"</strong>. The formatted citation is copied to the clipboard, ready to be pasted into Word, LibreOffice or any editor.</span>
+      </p>
+    </div>
+
+    <!-- Configurare Ollama -->
+    <div class="doc-section" id="ollama">
+      <h2>
+        <span class="lang-it">🤖 Configurare Ollama per l'AI</span>
+        <span class="lang-en">🤖 Setting up Ollama for AI</span>
+      </h2>
+      <p>
+        <span class="lang-it">Ollama permette a CiteMind di usare modelli AI grandi in locale, senza dipendere da API cloud. Tutte le elaborazioni avvengono sul tuo computer.</span>
+        <span class="lang-en">Ollama allows CiteMind to use large AI models locally, without relying on cloud APIs. All processing happens on your computer.</span>
+      </p>
+
+      <h3>
+        <span class="lang-it">Installazione</span>
+        <span class="lang-en">Installation</span>
+      </h3>
+      <p>
+        <span class="lang-it">Scarica e installa Ollama da <a href="https://ollama.ai" target="_blank" rel="noopener">ollama.ai</a>. Al termine dell'installazione, avvia il servizio.</span>
+        <span class="lang-en">Download and install Ollama from <a href="https://ollama.ai" target="_blank" rel="noopener">ollama.ai</a>. After installation, start the service.</span>
+      </p>
+
+      <h3>
+        <span class="lang-it">Scaricare il modello consigliato</span>
+        <span class="lang-en">Downloading the recommended model</span>
+      </h3>
+      <div class="code-block">
+        <code>ollama pull gemma4</code>
+      </div>
+
+      <h3>
+        <span class="lang-it">Configurazione in CiteMind</span>
+        <span class="lang-en">Configuration in CiteMind</span>
+      </h3>
+      <p>
+        <span class="lang-it">Vai su <strong>Impostazioni → AI</strong>. Verifica che i seguenti valori siano corretti:</span>
+        <span class="lang-en">Go to <strong>Settings → AI</strong>. Verify that the following values are correct:</span>
+      </p>
+      <div class="code-block">
+        <code><span class="comment">
+          <span class="lang-it"># Endpoint Ollama (default)</span>
+          <span class="lang-en"># Ollama Endpoint (default)</span>
+        </span>
+Endpoint: http://localhost:11434
+
+<span class="comment">
+  <span class="lang-it"># Modello consigliato</span>
+  <span class="lang-en"># Recommended model</span>
+</span>
+Modello:  gemma4</code>
+      </div>
+
+      <h3>
+        <span class="lang-it">Funzioni AI disponibili</span>
+        <span class="lang-en">Available AI features</span>
+      </h3>
+      <ul>
+        <li>
+          <span class="lang-it"><strong>Note da PDF:</strong> genera automaticamente un riassunto del documento</span>
+          <span class="lang-en"><strong>Notes from PDF:</strong> automatically generates a summary of the document</span>
+        </li>
+        <li>
+          <span class="lang-it"><strong>AI Topics:</strong> estrae topic tematici dal contenuto del PDF</span>
+          <span class="lang-en"><strong>AI Topics:</strong> extracts thematic topics from the PDF content</span>
+        </li>
+        <li>
+          <span class="lang-it"><strong>Metadati fallback:</strong> inferisce titolo, autori, anno se non trovati dalle API</span>
+          <span class="lang-en"><strong>Metadata fallback:</strong> infers title, authors, year if not found by APIs</span>
+        </li>
+        <li>
+          <span class="lang-it"><strong>Ricerca semantica:</strong> usa embedding per trovare documenti concettualmente simili</span>
+          <span class="lang-en"><strong>Semantic search:</strong> uses embeddings to find conceptually similar documents</span>
+        </li>
+      </ul>
+
+      <div class="info-box">
+        <p>
+          <span class="lang-it"><strong>Privacy:</strong> Quando si usa Ollama, nessun testo viene inviato a server esterni. Tutti i dati rimangono sul computer dell'utente. CiteMind non raccoglie dati di utilizzo.</span>
+          <span class="lang-en"><strong>Privacy:</strong> When using Ollama, no text is sent to external servers. All data remains on the user's computer. CiteMind does not collect usage data.</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- Knowledge Graph -->
+    <div class="doc-section" id="knowledge-graph">
+      <h2>📊 Knowledge Graph</h2>
+      <p>
+        <span class="lang-it">Il Knowledge Graph visualizza la tua biblioteca come una rete di relazioni tra documenti e concetti tematici.</span>
+        <span class="lang-en">The Knowledge Graph visualises your library as a network of relationships between documents and thematic concepts.</span>
+      </p>
+
+      <h3>
+        <span class="lang-it">Come aprire il Knowledge Graph</span>
+        <span class="lang-en">How to open the Knowledge Graph</span>
+      </h3>
+      <p>
+        <span class="lang-it">Usa il menu <strong>Vista → Knowledge Graph</strong> o la scorciatoia <kbd>Ctrl+G</kbd>. Il grafo si aggiorna automaticamente ad ogni import.</span>
+        <span class="lang-en">Use the menu <strong>View → Knowledge Graph</strong> or the shortcut <kbd>Ctrl+G</kbd>. The graph updates automatically with each import.</span>
+      </p>
+
+      <h3>
+        <span class="lang-it">Cosa mostra il grafo</span>
+        <span class="lang-en">What the graph shows</span>
+      </h3>
+      <ul>
+        <li>
+          <span class="lang-it"><strong>Nodi blu (documenti):</strong> ogni voce bibliografica nel database</span>
+          <span class="lang-en"><strong>Blue nodes (documents):</strong> each bibliographic entry in the database</span>
+        </li>
+        <li>
+          <span class="lang-it"><strong>Nodi viola (keyword):</strong> termini estratti via TF-IDF dal corpus</span>
+          <span class="lang-en"><strong>Purple nodes (keywords):</strong> terms extracted via TF-IDF from the corpus</span>
+        </li>
+        <li>
+          <span class="lang-it"><strong>Archi Jaccard:</strong> connettono documenti con keyword in comune (soglia ≥ 0.35)</span>
+          <span class="lang-en"><strong>Jaccard edges:</strong> connect documents with shared keywords (threshold ≥ 0.35)</span>
+        </li>
+        <li>
+          <span class="lang-it"><strong>Archi semantici:</strong> basati sulla similarità coseno tra embedding</span>
+          <span class="lang-en"><strong>Semantic edges:</strong> based on cosine similarity between embeddings</span>
+        </li>
+        <li>
+          <span class="lang-it"><strong>Archi DAG:</strong> citazioni esplicite tra documenti (@references)</span>
+          <span class="lang-en"><strong>DAG edges:</strong> explicit citations between documents (@references)</span>
+        </li>
+      </ul>
+
+      <h3>
+        <span class="lang-it">Interazione</span>
+        <span class="lang-en">Interaction</span>
+      </h3>
+      <p>
+        <span class="lang-it">Puoi zoomare con la rotella del mouse, trascinare i nodi per riorganizzare il layout, cliccare su un nodo per vedere il dettaglio del documento, e filtrare per tipo di arco usando i controlli in overlay.</span>
+        <span class="lang-en">You can zoom with the mouse wheel, drag nodes to reorganise the layout, click on a node to see document details, and filter by edge type using the overlay controls.</span>
+      </p>
+    </div>
+
+    <!-- Export -->
+    <div class="doc-section" id="export">
+      <h2>
+        <span class="lang-it">📤 Esportare</span>
+        <span class="lang-en">📤 Exporting</span>
+      </h2>
+      <p>
+        <span class="lang-it">CiteMind supporta l'export in quattro formati. Vai su <strong>File → Esporta</strong> e seleziona il formato desiderato.</span>
+        <span class="lang-en">CiteMind supports export in four formats. Go to <strong>File → Export</strong> and select the desired format.</span>
+      </p>
+
+      <div class="table-wrap" style="margin-bottom: 20px;">
+        <table>
+          <thead>
+            <tr>
+              <th>
+                <span class="lang-it">Formato</span>
+                <span class="lang-en">Format</span>
+              </th>
+              <th>
+                <span class="lang-it">Descrizione</span>
+                <span class="lang-en">Description</span>
+              </th>
+              <th>
+                <span class="lang-it">Compatibile con</span>
+                <span class="lang-en">Compatible with</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>DOCX</td>
+              <td>
+                <span class="lang-it">Lista bibliografica formattata in Word, con stile scelto dall'utente</span>
+                <span class="lang-en">Bibliographic list formatted in Word, with user-chosen style</span>
+              </td>
+              <td>Microsoft Word, LibreOffice Writer</td>
+            </tr>
+            <tr>
+              <td>BibTeX</td>
+              <td>
+                <span class="lang-it">File .bib standard per LaTeX / Overleaf</span>
+                <span class="lang-en">Standard .bib file for LaTeX / Overleaf</span>
+              </td>
+              <td>LaTeX, Overleaf, JabRef, Zotero</td>
+            </tr>
+            <tr>
+              <td>BibLaTeX</td>
+              <td>
+                <span class="lang-it">Formato avanzato biblatex con campi estesi</span>
+                <span class="lang-en">Advanced biblatex format with extended fields</span>
+              </td>
+              <td>LaTeX con pacchetto biblatex</td>
+            </tr>
+            <tr>
+              <td>PDF Report</td>
+              <td>
+                <span class="lang-it">Report PDF della biblioteca con tutti i metadati e note</span>
+                <span class="lang-en">PDF report of the library with all metadata and notes</span>
+              </td>
+              <td>
+                <span class="lang-it">Qualsiasi PDF reader</span>
+                <span class="lang-en">Any PDF reader</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        <span class="lang-it">Puoi esportare l'intera biblioteca o una selezione di voci. Usa <kbd>Ctrl+Click</kbd> per selezionare più voci, poi vai su <strong>File → Esporta selezione</strong>.</span>
+        <span class="lang-en">You can export the entire library or a selection of entries. Use <kbd>Ctrl+Click</kbd> to select multiple entries, then go to <strong>File → Export selection</strong>.</span>
+      </p>
+    </div>
+
+    <!-- Shortcut -->
+    <div class="doc-section" id="shortcuts">
+      <h2>
+        <span class="lang-it">⌨ Shortcut da tastiera</span>
+        <span class="lang-en">⌨ Keyboard Shortcuts</span>
+      </h2>
+      <p>
+        <span class="lang-it">CiteMind è progettato per un uso efficiente da tastiera. Ecco le scorciatoie principali.</span>
+        <span class="lang-en">CiteMind is designed for efficient keyboard use. Here are the main shortcuts.</span>
+      </p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>
+                <span class="lang-it">Scorciatoia</span>
+                <span class="lang-en">Shortcut</span>
+              </th>
+              <th>
+                <span class="lang-it">Azione</span>
+                <span class="lang-en">Action</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd></td>
+              <td>
+                <span class="lang-it">Apre il Command Palette — accesso rapido a qualsiasi funzione</span>
+                <span class="lang-en">Opens the Command Palette — quick access to any feature</span>
+              </td>
+            </tr>
+            <tr>
+              <td><kbd>Ctrl</kbd> + <kbd>G</kbd></td>
+              <td>
+                <span class="lang-it">Apre il Knowledge Graph</span>
+                <span class="lang-en">Opens the Knowledge Graph</span>
+              </td>
+            </tr>
+            <tr>
+              <td><kbd>Ctrl</kbd> + <kbd>N</kbd></td>
+              <td>
+                <span class="lang-it">Nuova voce manuale</span>
+                <span class="lang-en">New manual entry</span>
+              </td>
+            </tr>
+            <tr>
+              <td><kbd>Ctrl</kbd> + <kbd>I</kbd></td>
+              <td>
+                <span class="lang-it">Apre la finestra di import</span>
+                <span class="lang-en">Opens the import window</span>
+              </td>
+            </tr>
+            <tr>
+              <td><kbd>Ctrl</kbd> + <kbd>E</kbd></td>
+              <td>
+                <span class="lang-it">Esporta selezione</span>
+                <span class="lang-en">Export selection</span>
+              </td>
+            </tr>
+            <tr>
+              <td><kbd>Ctrl</kbd> + <kbd>F</kbd></td>
+              <td>
+                <span class="lang-it">Focus sulla barra di ricerca FTS</span>
+                <span class="lang-en">Focus on FTS search bar</span>
+              </td>
+            </tr>
+            <tr>
+              <td><kbd>Ctrl</kbd> + <kbd>C</kbd></td>
+              <td>
+                <span class="lang-it">Copia citazione formattata della voce selezionata</span>
+                <span class="lang-en">Copy formatted citation of selected entry</span>
+              </td>
+            </tr>
+            <tr>
+              <td><kbd>Del</kbd></td>
+              <td>
+                <span class="lang-it">Elimina la voce selezionata (con conferma)</span>
+                <span class="lang-en">Delete selected entry (with confirmation)</span>
+              </td>
+            </tr>
+            <tr>
+              <td><kbd>Ctrl</kbd> + <kbd>Z</kbd></td>
+              <td>
+                <span class="lang-it">Annulla ultima azione</span>
+                <span class="lang-en">Undo last action</span>
+              </td>
+            </tr>
+            <tr>
+              <td><kbd>Ctrl</kbd> + <kbd>S</kbd></td>
+              <td>
+                <span class="lang-it">Salva manualmente (l'autosave è sempre attivo)</span>
+                <span class="lang-en">Save manually (autosave is always active)</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="info-box" style="margin-top: 20px;">
+        <p>💡 
+          <span class="lang-it">Il <strong>Command Palette</strong> (<kbd>Ctrl+Shift+P</kbd>) ti permette di accedere a qualsiasi funzione digitandone il nome, senza ricordare menu o scorciatoie. È il modo più veloce per eseguire operazioni avanzate.</span>
+          <span class="lang-en">The <strong>Command Palette</strong> (<kbd>Ctrl+Shift+P</kbd>) allows you to access any function by typing its name, without remembering menus or shortcuts. It's the fastest way to perform advanced operations.</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- Temi -->
+    <div class="doc-section" id="themes">
+      <h2>
+        <span class="lang-it">🎨 Temi</span>
+        <span class="lang-en">🎨 Themes</span>
+      </h2>
+      <p>
+        <span class="lang-it">CiteMind include quattro temi visivi per adattarsi alle tue preferenze e al tuo ambiente di lavoro.</span>
+        <span class="lang-en">CiteMind includes four visual themes to suit your preferences and working environment.</span>
+      </p>
+
+      <div class="feature-grid" style="grid-template-columns: repeat(2, 1fr);">
+        <div class="feature-card">
+          <span class="card-icon">🌑</span>
+          <h3>Dark (predefinito / default)</h3>
+          <p>
+            <span class="lang-it">Tema scuro con palette viola/indigo. Ottimale per lunghe sessioni di lavoro e ambienti con poca luce. Riduce l'affaticamento visivo.</span>
+            <span class="lang-en">Dark theme with purple/indigo palette. Optimal for long work sessions and low-light environments. Reduces eye strain.</span>
+          </p>
+        </div>
+        <div class="feature-card">
+          <span class="card-icon">☀️</span>
+          <h3>Light</h3>
+          <p>
+            <span class="lang-it">Tema chiaro ad alto contrasto. Ideale in ambienti luminosi o per chi preferisce interfacce simili a carta stampata.</span>
+            <span class="lang-en">High contrast light theme. Ideal in bright environments or for those who prefer paper-like interfaces.</span>
+          </p>
+        </div>
+        <div class="feature-card">
+          <span class="card-icon">💻</span>
+          <h3>Terminal</h3>
+          <p>
+            <span class="lang-it">Tema ispirato ai terminali classici. Verde su nero, font monospace. Per chi ama l'estetica retrò e vuole una differenziazione netta dall'interfaccia OS.</span>
+            <span class="lang-en">Theme inspired by classic terminals. Green on black, monospace font. For those who love retro aesthetics and want a clear differentiation from the OS interface.</span>
+          </p>
+        </div>
+        <div class="feature-card">
+          <span class="card-icon">📖</span>
+          <h3>Ebook</h3>
+          <p>
+            <span class="lang-it">Tema con sfondo color carta e testo seppia, ispirato agli e-reader. Ottimo per sessioni di lettura prolungate di note e abstract.</span>
+            <span class="lang-en">Theme with paper-coloured background and sepia text, inspired by e-readers. Great for prolonged reading sessions of notes and abstracts.</span>
+          </p>
+        </div>
+      </div>
+
+      <p style="margin-top: 20px;">
+        <span class="lang-it">Cambia tema da <strong>Impostazioni → Aspetto → Tema</strong> o dal menu a tendina nella toolbar. Il tema viene salvato tra le sessioni.</span>
+        <span class="lang-en">Change the theme from <strong>Settings → Appearance → Theme</strong> or from the dropdown menu in the toolbar. The theme is saved between sessions.</span>
+      </p>
+    </div>
+
+    <!-- PDF Viewer -->
+    <div class="doc-section" id="pdf-viewer">
+      <h2>📄 PDF Viewer</h2>
+      <p>
+        <span class="lang-it">CiteMind include un visualizzatore PDF integrato con supporto ad annotazioni e OCR.</span>
+        <span class="lang-en">CiteMind includes an integrated PDF viewer with support for annotations and OCR.</span>
+      </p>
+      <ul>
+        <li>
+          <span class="lang-it"><strong>Annotazioni:</strong> evidenzia testo, aggiungi note a margine direttamente nel PDF</span>
+          <span class="lang-en"><strong>Annotations:</strong> highlight text, add marginal notes directly in the PDF</span>
+        </li>
+        <li>
+          <span class="lang-it"><strong>OCR:</strong> per PDF scansionati, usa Tesseract per estrarre il testo (richiede installazione separata)</span>
+          <span class="lang-en"><strong>OCR:</strong> for scanned PDFs, use Tesseract to extract text (requires separate installation)</span>
+        </li>
+        <li>
+          <span class="lang-it"><strong>Sincronizzazione note:</strong> le annotazioni vengono salvate nel database e associate alla voce bibliografica</span>
+          <span class="lang-en"><strong>Note synchronization:</strong> annotations are saved in the database and associated with the bibliographic entry</span>
+        </li>
+      </ul>
+      <p>
+        <span class="lang-it">Apri il PDF Viewer doppio-cliccando su una voce che ha un PDF allegato, o tramite il pulsante "Apri PDF" nel pannello dettagli.</span>
+        <span class="lang-en">Open the PDF Viewer by double-clicking on an entry that has an attached PDF, or via the "Open PDF" button in the details panel.</span>
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── Footer ─────────────────────────────────────────────── -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">Cite<span>Mind</span></div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="pipeline.html">Pipeline</a>
+        <a href="download.html">Download</a>
+        <a href="doc.html"><span class="lang-it">Documentazione</span><span class="lang-en">Documentation</span></a>
+        <a href="contributor.html"><span class="lang-it">Contribuisci</span><span class="lang-en">Contribute</span></a>
+        <a href="licence.html"><span class="lang-it">Licenza</span><span class="lang-en">Licence</span></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Mattia (IkiMatt) · <span class="lang-it">Rilasciato sotto licenza MIT</span><span class="lang-en">Released under MIT License</span></p>
+      <div class="footer-links">
+        <a href="https://github.com/IkiMatt/CiteMind" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://buymeacoffee.com/ikimattia" target="_blank" rel="noopener">Buy Me a Coffee</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

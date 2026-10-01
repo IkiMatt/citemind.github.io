@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>
+    <span class="lang-it">Pipeline – CiteMind</span>
+    <span class="lang-en">Pipeline – CiteMind</span>
+  </title>
+  <meta name="description" class="lang-it" content="Scopri come funziona la pipeline di import di CiteMind: dall'acquisizione del PDF all'arricchimento AI, deduplicazione e aggiornamento del Knowledge Graph." />
+  <meta name="description" class="lang-en" content="Discover how CiteMind's import pipeline works: from PDF acquisition to AI enrichment, deduplication, and Knowledge Graph updates." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="lang.js"></script>
+</head>
+<body>
+
+<!-- ── Header ─────────────────────────────────────────────── -->
+<header>
+  <nav class="container">
+    <a href="index.html" class="nav-logo">Cite<span class="logo-accent">Mind</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="pipeline.html" class="active">Pipeline</a></li>
+      <li><a href="download.html">Download</a></li>
+      <li class="dropdown">
+        <span>Contributor <span class="dropdown-caret">▾</span></span>
+        <ul class="dropdown-menu">
+          <li><a href="contributor.html"><span class="lang-it">Come contribuire</span><span class="lang-en">How to contribute</span></a></li>
+          <li><a href="creator.html"><span class="lang-it">Il Creatore</span><span class="lang-en">The Creator</span></a></li>
+        </ul>
+      </li>
+      <li><a href="doc.html">Doc</a></li>
+      <li><a href="licence.html"><span class="lang-it">Licenza</span><span class="lang-en">Licence</span></a></li>
+      <li class="lang-switcher">
+        <button class="lang-btn" data-lang="it">IT</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ── Page Hero ──────────────────────────────────────────── -->
+<section class="page-hero">
+  <div class="container">
+    <div class="section-label">
+      <span class="lang-it">Come funziona</span>
+      <span class="lang-en">How it works</span>
+    </div>
+    <h1>
+      <span class="lang-it">Pipeline di Import</span>
+      <span class="lang-en">Import Pipeline</span>
+    </h1>
+    <p>
+      <span class="lang-it">Dal drag&amp;drop di un PDF a una voce bibliografica completa, arricchita da API accademiche e AI locale, deduplicata, indicizzata e integrata nel Knowledge Graph.</span>
+      <span class="lang-en">From drag&dropping a PDF to a complete bibliographic entry, enriched by academic APIs and local AI, deduplicated, indexed and integrated into the Knowledge Graph.</span>
+    </p>
+  </div>
+</section>
+
+<!-- ── Overview ───────────────────────────────────────────── -->
+<section>
+  <div class="container">
+    <div class="info-box">
+      <p>
+        <span class="lang-it">La pipeline di CiteMind è <strong>modulare e resiliente</strong>: se un'API non risponde o un campo non viene trovato, il sistema passa automaticamente alla fonte successiva. L'AI locale (Ollama) entra in gioco solo come ultimo fallback, garantendo sempre il massimo livello di completezza possibile senza dipendere da servizi cloud.</span>
+        <span class="lang-en">CiteMind's pipeline is modular and resilient: if an API doesn't respond or a field isn't found, the system automatically falls back to the next source. Local AI (Ollama) kicks in only as a last resort, always guaranteeing the highest possible completeness without relying on cloud services.</span>
+      </p>
+    </div>
+
+    <div style="margin-top: 40px; margin-bottom: 16px;">
+      <div class="section-label">
+        <span class="lang-it">Flusso completo</span>
+        <span class="lang-en">Full flow</span>
+      </div>
+      <h2 class="section-title">
+        <span class="lang-it">8 Step dalla sorgente al database</span>
+        <span class="lang-en">The 8 stages</span>
+      </h2>
+    </div>
+
+    <div class="pipeline-steps">
+
+      <!-- Step 1 -->
+      <div class="step">
+        <div class="step-number">1</div>
+        <div class="step-body">
+          <h3>
+            <span class="lang-it">Drop — Acquisizione sorgente</span>
+            <span class="lang-en">Drop</span>
+          </h3>
+          <p>
+            <span class="lang-it">L'utente fornisce la sorgente tramite drag&amp;drop nell'interfaccia o input diretto. CiteMind accetta PDF trascinati nella finestra principale, file BibTeX (<code>.bib</code>), RIS, CSV batch, DOI incollato nel campo di ricerca rapida e URL di pagine web.</span>
+            <span class="lang-en">The user drags and drops a PDF, .bib, .ris, .csv file, or pastes a DOI / URL directly into the application. The type is detected automatically.</span>
+          </p>
+          <div class="tag-list">
+            <span class="tag">PDF</span>
+            <span class="tag">BibTeX .bib</span>
+            <span class="tag">RIS</span>
+            <span class="tag">CSV</span>
+            <span class="tag">DOI diretto</span>
+            <span class="tag">URL</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="step">
+        <div class="step-number">2</div>
+        <div class="step-body">
+          <h3>
+            <span class="lang-it">PDF Parse — Estrazione metadati locali</span>
+            <span class="lang-en">PDF Parse</span>
+          </h3>
+          <p>
+            <span class="lang-it">Per i file PDF, CiteMind usa <strong>PyMuPDF (fitz)</strong> per estrarre il testo grezzo delle prime pagine. Vengono identificati con euristiche il titolo (prima riga di grande dimensione), gli autori (seconda/terza riga), l'anno di pubblicazione e il journal tramite pattern matching sul layout tipografico del documento.</span>
+            <span class="lang-en">PyMuPDF extracts text from the PDF. Title, authors, year and DOI are identified using heuristics on the first pages. A confidence score is assigned to each field.</span>
+          </p>
+          <div class="tag-list">
+            <span class="tag">PyMuPDF</span>
+            <span class="tag">Title detection</span>
+            <span class="tag">Author heuristics</span>
+            <span class="tag">OCR fallback</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="step">
+        <div class="step-number">3</div>
+        <div class="step-body">
+          <h3>
+            <span class="lang-it">DOI Extraction — Rilevamento identificatore</span>
+            <span class="lang-en">DOI Extraction</span>
+          </h3>
+          <p>
+            <span class="lang-it">Il sistema applica espressioni regolari sul testo estratto per rilevare DOI nel formato standard (<code>10.XXXX/...</code>). Il DOI viene ricercato nel corpo del testo, nelle note a piè di pagina e nei metadati XMP del PDF. Un DOI trovato permette un arricchimento API molto più preciso degli stessi metadati estratti in locale.</span>
+            <span class="lang-en">A regex scans the full text for DOI patterns (10.XXXX/...). The extracted DOI is used to query academic APIs with higher precision.</span>
+          </p>
+          <div class="tag-list">
+            <span class="tag">Regex DOI</span>
+            <span class="tag">XMP metadata</span>
+            <span class="tag">Footnote scanning</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="step">
+        <div class="step-number">4</div>
+        <div class="step-body">
+          <h3>
+            <span class="lang-it">API Enrichment — Arricchimento da fonti accademiche</span>
+            <span class="lang-en">API Enrichment</span>
+          </h3>
+          <p>
+            <span class="lang-it">CiteMind interroga in cascata tre API accademiche per arricchire i metadati. Per ogni campo (titolo, autori, anno, journal, abstract, ISBN, publisher) viene calcolato un <strong>confidence score</strong>. In caso di conflitto tra fonti, vince il campo con confidence più alta. Le API vengono interrogate nell'ordine:</span>
+            <span class="lang-en">Crossref, OpenAlex and Semantic Scholar are queried in order. Each source returns a confidence score per field; conflicts are resolved by taking the highest-confidence value. Data includes abstract, keywords, volume, issue and pages.</span>
+          </p>
+          <div class="tag-list">
+            <span class="tag">Crossref</span>
+            <span class="tag">OpenAlex</span>
+            <span class="tag">Semantic Scholar</span>
+          </div>
+          <div style="margin-top: 14px;">
+            <p style="font-size:.88rem;">1. <strong style="color:var(--fg-base)">Crossref</strong> — DOI resolver principale, dati editoriali precisi<br/>
+            2. <strong style="color:var(--fg-base)">OpenAlex</strong> — metadati open access, affiliazioni, topics<br/>
+            3. <strong style="color:var(--fg-base)">Semantic Scholar</strong> — abstract arricchito, citazioni, field of study</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 5 -->
+      <div class="step">
+        <div class="step-number">5</div>
+        <div class="step-body">
+          <h3>
+            <span class="lang-it">AI Fallback — Inferenza locale con Ollama</span>
+            <span class="lang-en">AI Fallback</span>
+          </h3>
+          <p>
+            <span class="lang-it">Se dopo l'enrichment da API rimangono campi critici vuoti (es. titolo, autori, anno), CiteMind usa <strong>Ollama</strong> in locale con il modello <strong>gemma4</strong> per inferire i metadati mancanti dal testo grezzo del PDF. L'AI genera anche note di sintesi e topic tematici associati al documento. Nessun dato lascia il computer dell'utente.</span>
+            <span class="lang-en">If metadata fields are still missing after the API phase, the local Ollama model (recommended: gemma4) infers them from the PDF text. Processing is fully local — no data leaves your machine.</span>
+          </p>
+          <div class="tag-list">
+            <span class="tag">Ollama</span>
+            <span class="tag">gemma4</span>
+            <span class="tag">Note generation</span>
+            <span class="tag">AI Topics</span>
+            <span class="tag">Locale / Privacy</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 6 -->
+      <div class="step">
+        <div class="step-number">6</div>
+        <div class="step-body">
+          <h3>
+            <span class="lang-it">Dedup Check — Controllo duplicati</span>
+            <span class="lang-en">Dedup Check</span>
+          </h3>
+          <p>
+            <span class="lang-it">Prima di inserire la nuova voce, CiteMind verifica che non esista già nel database un documento identico. Il controllo avviene in due modi: <strong>DOI exact match</strong> (se disponibile) e <strong>title fuzzy match</strong> usando distanza di Levenshtein normalizzata. Se viene rilevato un possibile duplicato, l'utente viene avvisato con un dialog di conferma.</span>
+            <span class="lang-en">Before insertion, a duplicate check is performed by DOI and title similarity. If a match is found, the existing entry is updated rather than creating a duplicate.</span>
+          </p>
+          <div class="tag-list">
+            <span class="tag">DOI exact match</span>
+            <span class="tag">Fuzzy title</span>
+            <span class="tag">Levenshtein</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 7 -->
+      <div class="step">
+        <div class="step-number">7</div>
+        <div class="step-body">
+          <h3>
+            <span class="lang-it">Insert + Embed — Salvataggio e indicizzazione</span>
+            <span class="lang-en">Insert + Embed</span>
+          </h3>
+          <p>
+            <span class="lang-it">La voce viene inserita nel database <strong>SQLite</strong> con tutti i metadati arricchiti. Vengono aggiornati automaticamente i trigger <strong>FTS5</strong> per la full-text search su titolo, autori, journal e note. In parallelo viene calcolato il vettore embedding del documento (concatenazione di titolo + abstract + keywords) per la ricerca semantica futura.</span>
+            <span class="lang-en">The entry is saved to SQLite. FTS5 triggers index title, authors, journal and notes for full-text search. Embedding vectors are generated for semantic search (cosine similarity).</span>
+          </p>
+          <div class="tag-list">
+            <span class="tag">SQLite</span>
+            <span class="tag">FTS5 triggers</span>
+            <span class="tag">Embeddings</span>
+            <span class="tag">Cosine similarity</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 8 -->
+      <div class="step">
+        <div class="step-number">8</div>
+        <div class="step-body">
+          <h3>
+            <span class="lang-it">Graph Update — Aggiornamento Knowledge Graph</span>
+            <span class="lang-en">Graph Update</span>
+          </h3>
+          <p>
+            <span class="lang-it">Dopo l'insert, il Knowledge Graph viene ricalcolato per includere il nuovo documento. Vengono estratte le keyword TF-IDF, creati i nodi documento e keyword, e calcolati gli archi di relazione tramite <strong>Jaccard overlap</strong> (soglia 0.35) e <strong>similarità semantica</strong> tra embedding. Vengono anche indicizzati gli archi DAG basati sulle citazioni (@references) se presenti nei metadati.</span>
+            <span class="lang-en">The Knowledge Graph is updated with new document and keyword nodes. Edges are computed via Jaccard keyword overlap (threshold 0.35) and semantic similarity from embeddings. The force-layout is recomputed.</span>
+          </p>
+          <div class="tag-list">
+            <span class="tag">TF-IDF keywords</span>
+            <span class="tag">Jaccard ≥ 0.35</span>
+            <span class="tag">Semantic edges</span>
+            <span class="tag">DAG references</span>
+            <span class="tag">Force layout</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Knowledge Graph ─────────────────────────────────────── -->
+<section style="background: var(--bg-surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+  <div class="container">
+    <div class="section-label">
+      <span class="lang-it">Visualizzazione</span>
+      <span class="lang-en">Visualisation</span>
+    </div>
+    <h2 class="section-title">
+      <span class="lang-it">Knowledge Graph</span>
+      <span class="lang-en">The Knowledge Graph</span>
+    </h2>
+    <p class="section-sub">
+      <span class="lang-it">Il Knowledge Graph trasforma la tua biblioteca in una mappa visiva delle relazioni concettuali tra documenti e argomenti.</span>
+      <span class="lang-en">The Knowledge Graph transforms your library into a visual map of conceptual relationships between documents and topics.</span>
+    </p>
+
+    <div class="feature-grid">
+      <div class="feature-card">
+        <span class="card-icon">🔵</span>
+        <h3>
+          <span class="lang-it">Nodi Documento</span>
+          <span class="lang-en">Document Nodes</span>
+        </h3>
+        <p>
+          <span class="lang-it">Ogni documento importato diventa un nodo nel grafo. La dimensione del nodo riflette il numero di connessioni (grado). Cliccando su un nodo si accede al dettaglio della voce bibliografica.</span>
+          <span class="lang-en">Each imported document becomes a node in the graph. The size of the node reflects the number of connections (degree). Clicking on a node gives access to the details of the bibliographic entry.</span>
+        </p>
+      </div>
+      <div class="feature-card">
+        <span class="card-icon">🟣</span>
+        <h3>
+          <span class="lang-it">Nodi Keyword</span>
+          <span class="lang-en">Keyword Nodes</span>
+        </h3>
+        <p>
+          <span class="lang-it">Le keyword estratte via TF-IDF diventano nodi di tipo secondario. Un documento è collegato alle sue keyword con archi di peso proporzionale alla rilevanza TF-IDF nel corpus.</span>
+          <span class="lang-en">Keywords extracted via TF-IDF become secondary nodes. A document is linked to its keywords with edges of weight proportional to the TF-IDF relevance in the corpus.</span>
+        </p>
+      </div>
+      <div class="feature-card">
+        <span class="card-icon">🔗</span>
+        <h3>
+          <span class="lang-it">Archi di Relazione</span>
+          <span class="lang-en">Relationship Edges</span>
+        </h3>
+        <p>
+          <span class="lang-it">Gli archi tra documenti sono calcolati con Jaccard overlap sulle keyword condivise (soglia 0.35) e similarità coseno tra i vettori embedding. Gli archi DAG rappresentano citazioni esplicite.</span>
+          <span class="lang-en">Edges between documents are calculated with Jaccard overlap on shared keywords (threshold 0.35) and cosine similarity between embedding vectors. DAG edges represent explicit citations.</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="info-box" style="margin-top: 32px;">
+      <p>
+        <span class="lang-it">Il grafo usa un <strong>force-directed layout</strong>: i documenti più simili si attraggono, formando cluster tematici naturali. Puoi zoomare, trascinare i nodi e filtrare per tipo di relazione. Apri il Knowledge Graph dal menu principale o con <kbd>Ctrl+G</kbd>.</span>
+        <span class="lang-en">The graph uses a <strong>force-directed layout</strong>: similar documents attract each other, forming natural thematic clusters. You can zoom, drag nodes and filter by relationship type. Open the Knowledge Graph from the main menu or with <kbd>Ctrl+G</kbd>.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ── Formati supportati ──────────────────────────────────── -->
+<section>
+  <div class="container">
+    <div class="section-label">
+      <span class="lang-it">Formati di input</span>
+      <span class="lang-en">Input Formats</span>
+    </div>
+    <h2 class="section-title">
+      <span class="lang-it">Formati supportati</span>
+      <span class="lang-en">Supported formats</span>
+    </h2>
+    <p class="section-sub" style="margin-bottom: 32px;">
+      <span class="lang-it">CiteMind accetta una vasta gamma di formati standard per l'import di riferimenti bibliografici.</span>
+      <span class="lang-en">CiteMind accepts a wide range of standard formats for importing bibliographic references.</span>
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>
+              <span class="lang-it">Formato</span>
+              <span class="lang-en">Format</span>
+            </th>
+            <th>
+              <span class="lang-it">Comportamento</span>
+              <span class="lang-en">Behaviour</span>
+            </th>
+            <th>
+              <span class="lang-it">Risultato</span>
+              <span class="lang-en">Result</span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>PDF (drag&amp;drop)</td>
+            <td>
+              <span class="lang-it">Parsing locale con PyMuPDF → DOI detection → API enrichment → AI fallback</span>
+              <span class="lang-en">Local parsing with PyMuPDF → DOI detection → API enrichment → AI fallback</span>
+            </td>
+            <td>
+              <span class="lang-it">Voce completa con abstract, autori, journal, embedding</span>
+              <span class="lang-en">Complete entry with abstract, authors, journal, embedding</span>
+            </td>
+          </tr>
+          <tr>
+            <td>BibTeX (.bib)</td>
+            <td>
+              <span class="lang-it">Parsing campi BibTeX → validazione DOI → arricchimento selettivo campi mancanti</span>
+              <span class="lang-en">BibTeX field parsing → DOI validation → selective enrichment of missing fields</span>
+            </td>
+            <td>
+              <span class="lang-it">Import batch di voci, metadati preservati e arricchiti</span>
+              <span class="lang-en">Batch import of entries, metadata preserved and enriched</span>
+            </td>
+          </tr>
+          <tr>
+            <td>RIS</td>
+            <td>
+              <span class="lang-it">Conversione campo-a-campo dal formato RIS → normalizzazione → insert</span>
+              <span class="lang-en">Field-by-field conversion from RIS format → normalisation → insert</span>
+            </td>
+            <td>
+              <span class="lang-it">Voci importate con tipo di pubblicazione mappato</span>
+              <span class="lang-en">Imported entries with mapped publication type</span>
+            </td>
+          </tr>
+          <tr>
+            <td>CSV</td>
+            <td>
+              <span class="lang-it">Mapping colonne configurabile (titolo, autori, anno, DOI…) → insert batch</span>
+              <span class="lang-en">Configurable column mapping (title, authors, year, DOI...) → batch insert</span>
+            </td>
+            <td>
+              <span class="lang-it">Import massivo da spreadsheet o export di altri gestori</span>
+              <span class="lang-en">Mass import from spreadsheets or export from other managers</span>
+            </td>
+          </tr>
+          <tr>
+            <td>DOI diretto</td>
+            <td>
+              <span class="lang-it">Risoluzione immediata tramite Crossref → metadati completi → insert</span>
+              <span class="lang-en">Immediate resolution via Crossref → complete metadata → insert</span>
+            </td>
+            <td>
+              <span class="lang-it">Voce completa in pochi secondi dall'identificatore</span>
+              <span class="lang-en">Complete entry in seconds from the identifier</span>
+            </td>
+          </tr>
+          <tr>
+            <td>URL</td>
+            <td>
+              <span class="lang-it">Fetch della pagina → estrazione metadati Open Graph / Dublin Core → insert</span>
+              <span class="lang-en">Page fetch → Open Graph / Dublin Core metadata extraction → insert</span>
+            </td>
+            <td>
+              <span class="lang-it">Voce sitografica con titolo, URL, data accesso</span>
+              <span class="lang-en">Sitography entry with title, URL, access date</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ─────────────────────────────────────────────── -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">Cite<span>Mind</span></div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="pipeline.html">Pipeline</a>
+        <a href="download.html">Download</a>
+        <a href="doc.html"><span class="lang-it">Documentazione</span><span class="lang-en">Documentation</span></a>
+        <a href="contributor.html"><span class="lang-it">Contribuisci</span><span class="lang-en">Contribute</span></a>
+        <a href="licence.html"><span class="lang-it">Licenza</span><span class="lang-en">Licence</span></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Mattia (IkiMatt) · <span class="lang-it">Rilasciato sotto licenza MIT</span><span class="lang-en">Released under MIT License</span></p>
+      <div class="footer-links">
+        <a href="https://github.com/IkiMatt/CiteMind" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://buymeacoffee.com/ikimattia" target="_blank" rel="noopener">Buy Me a Coffee</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

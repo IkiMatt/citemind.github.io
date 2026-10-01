@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>
+    <span class="lang-it">Download – CiteMind</span>
+    <span class="lang-en">Download – CiteMind</span>
+  </title>
+  <meta name="description" class="lang-it" content="Scarica CiteMind v0.3.4. Disponibile come installer .exe per Windows 10/11 o installabile da sorgente con Python 3.11+." />
+  <meta name="description" class="lang-en" content="Download CiteMind v0.3.4. Available as a .exe installer for Windows 10/11 or installable from source with Python 3.11+." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="lang.js"></script>
+</head>
+<body>
+
+<!-- ── Header ─────────────────────────────────────────────── -->
+<header>
+  <nav class="container">
+    <a href="index.html" class="nav-logo">Cite<span class="logo-accent">Mind</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="pipeline.html">Pipeline</a></li>
+      <li><a href="download.html" class="active">Download</a></li>
+      <li class="dropdown">
+        <span>Contributor <span class="dropdown-caret">▾</span></span>
+        <ul class="dropdown-menu">
+          <li><a href="contributor.html"><span class="lang-it">Come contribuire</span><span class="lang-en">How to contribute</span></a></li>
+          <li><a href="creator.html"><span class="lang-it">Il Creatore</span><span class="lang-en">The Creator</span></a></li>
+        </ul>
+      </li>
+      <li><a href="doc.html">Doc</a></li>
+      <li><a href="licence.html"><span class="lang-it">Licenza</span><span class="lang-en">Licence</span></a></li>
+      <li class="lang-switcher">
+        <button class="lang-btn" data-lang="it">IT</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ── Page Hero ──────────────────────────────────────────── -->
+<section class="page-hero">
+  <div class="container">
+    <div class="section-label">
+      <span class="lang-it">Scarica e installa</span>
+      <span class="lang-en">Download and install</span>
+    </div>
+    <h1>
+      <span class="lang-it">Download CiteMind</span>
+      <span class="lang-en">Download CiteMind</span>
+    </h1>
+    <p>
+      <span class="lang-it">Disponibile come installer per Windows o installabile da sorgente su qualsiasi sistema con Python 3.11+.</span>
+      <span class="lang-en">Get the latest version of CiteMind and start managing your academic bibliography with AI.</span>
+    </p>
+  </div>
+</section>
+
+<!-- ── Download principale ────────────────────────────────── -->
+<section>
+  <div class="container">
+
+    <div class="download-card">
+      <div class="version-badge">
+        <span class="lang-it">✦ v0.3.4 · Stabile</span>
+        <span class="lang-en">✦ v0.3.4 · Stable</span>
+      </div>
+      <h2>
+        <span class="lang-it">CiteMind per Windows</span>
+        <span class="lang-en">Windows Installer</span>
+      </h2>
+      <p>
+        <span class="lang-it">Installer <code>.exe</code> standalone per Windows 10 e 11. Include tutte le dipendenze necessarie. Nessuna installazione di Python richiesta.</span>
+        <span class="lang-en">The easiest way to get started. Download the installer and follow the guided setup. Includes all dependencies. No Python installation required.</span>
+      </p>
+      <a href="https://github.com/IkiMatt/CiteMind/releases" target="_blank" rel="noopener" class="btn btn-primary btn-large" style="width: 100%; justify-content: center;">
+        <span class="lang-it">⬇ Scarica l'installer (.exe)</span>
+        <span class="lang-en">⬇ Download CiteMind v0.3.4</span>
+      </a>
+      <div class="req-list">
+        <h3>
+          <span class="lang-it">Requisiti di sistema</span>
+          <span class="lang-en">System Requirements</span>
+        </h3>
+        <ul>
+          <li>
+            <span class="lang-it">Windows 10 o Windows 11 (64-bit)</span>
+            <span class="lang-en">Windows 10 or Windows 11 (64-bit)</span>
+          </li>
+          <li>
+            <span class="lang-it">4 GB RAM minimi, 8 GB consigliati</span>
+            <span class="lang-en">4 GB RAM minimum, 8 GB recommended</span>
+          </li>
+          <li>
+            <span class="lang-it">200 MB di spazio su disco per l'applicazione</span>
+            <span class="lang-en">200 MB disk space for the application</span>
+          </li>
+          <li>
+            <span class="lang-it">Connessione Internet per l'arricchimento API (opzionale)</span>
+            <span class="lang-en">Internet connection for API enrichment (optional)</span>
+          </li>
+          <li>
+            <span class="lang-it">Ollama installato localmente per le funzioni AI (opzionale)</span>
+            <span class="lang-en">Ollama installed locally for AI features (optional)</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Installazione da sorgente -->
+    <div class="section-label" style="margin-top: 16px;">
+      <span class="lang-it">Sviluppatori</span>
+      <span class="lang-en">Developers</span>
+    </div>
+    <h2 class="section-title">
+      <span class="lang-it">Installazione da sorgente</span>
+      <span class="lang-en">Install from Source</span>
+    </h2>
+    <p class="section-sub" style="margin-bottom: 24px;">
+      <span class="lang-it">Hai Python 3.11+? Puoi eseguire CiteMind direttamente dal codice sorgente su Windows, macOS e Linux.</span>
+      <span class="lang-en">Got Python 3.11+? You can run CiteMind directly from the source code on Windows, macOS and Linux.</span>
+    </p>
+
+    <div class="code-block">
+      <code><span class="comment">
+        <span class="lang-it"># 1. Clona il repository</span>
+        <span class="lang-en"># 1. Clone the repo</span>
+      </span>
+git clone https://github.com/IkiMatt/CiteMind.git
+cd CiteMind
+
+<span class="comment">
+  <span class="lang-it"># 2. (Consigliato) Crea un ambiente virtuale</span>
+  <span class="lang-en"># 2. (Recommended) Create a virtual environment</span>
+</span>
+python -m venv .venv
+.venv\Scripts\activate    <span class="comment"># Windows</span>
+source .venv/bin/activate <span class="comment"># macOS / Linux</span>
+
+<span class="comment">
+  <span class="lang-it"># 3. Installa le dipendenze</span>
+  <span class="lang-en"># 3. Install dependencies</span>
+</span>
+pip install -r requirements.txt
+
+<span class="comment">
+  <span class="lang-it"># 4. Avvia CiteMind</span>
+  <span class="lang-en"># 4. Launch</span>
+</span>
+python main.py</code>
+    </div>
+
+    <div class="info-box">
+      <p>
+        <span class="lang-it"><strong>Dipendenze principali:</strong> PySide6, PyMuPDF (fitz), SQLite3 (incluso in Python), requests, bibtexparser, scikit-learn, sentence-transformers. Consultare <code>requirements.txt</code> per la lista completa.</span>
+        <span class="lang-en"><strong>Main dependencies:</strong> PySide6, PyMuPDF (fitz), SQLite3 (included in Python), requests, bibtexparser, scikit-learn, sentence-transformers. See <code>requirements.txt</code> for the full list.</span>
+      </p>
+    </div>
+
+    <!-- Ollama -->
+    <div style="margin-top: 56px;">
+      <div class="section-label">
+        <span class="lang-it">AI locale</span>
+        <span class="lang-en">Local AI</span>
+      </div>
+      <h2 class="section-title">
+        <span class="lang-it">Configurare Ollama (opzionale)</span>
+        <span class="lang-en">Optional: Ollama for AI</span>
+      </h2>
+      <p class="section-sub" style="margin-bottom: 24px;">
+        <span class="lang-it">Ollama ti permette di eseguire modelli AI grandi in locale, senza inviare dati a servizi cloud. Richiesto per le funzioni AI di CiteMind.</span>
+        <span class="lang-en">Ollama allows you to run large AI models locally, without sending data to cloud services. Required for CiteMind's AI features.</span>
+      </p>
+
+      <div class="feature-grid" style="grid-template-columns: repeat(2, 1fr); max-width: 780px;">
+        <div class="feature-card">
+          <span class="card-icon">1️⃣</span>
+          <h3>
+            <span class="lang-it">Installa Ollama</span>
+            <span class="lang-en">Install Ollama</span>
+          </h3>
+          <p>
+            <span class="lang-it">Scarica e installa Ollama dal sito ufficiale. È disponibile per Windows, macOS e Linux.</span>
+            <span class="lang-en">Download and install Ollama from the official website. Available for Windows, macOS and Linux.</span>
+          </p>
+          <div style="margin-top: 14px;">
+            <a href="https://ollama.ai" target="_blank" rel="noopener" class="btn btn-secondary" style="font-size:.85rem; padding: 7px 16px;">→ ollama.ai</a>
+          </div>
+        </div>
+        <div class="feature-card">
+          <span class="card-icon">2️⃣</span>
+          <h3>
+            <span class="lang-it">Scarica il modello gemma4</span>
+            <span class="lang-en">Download gemma4 model</span>
+          </h3>
+          <p>
+            <span class="lang-it">Il modello consigliato è <code>gemma4</code> di Google. Ottimo equilibrio tra qualità e velocità su hardware consumer.</span>
+            <span class="lang-en">The recommended model is Google's <code>gemma4</code>. Great balance of quality and speed on consumer hardware.</span>
+          </p>
+          <div class="code-block" style="margin-top: 12px; padding: 12px 16px;">
+            <code>ollama pull gemma4</code>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-box" style="margin-top: 24px; max-width: 780px;">
+        <p>
+          <span class="lang-it">CiteMind si connette ad Ollama tramite l'API REST locale su <code>http://localhost:11434</code>. Assicurati che il servizio Ollama sia avviato prima di usare le funzioni AI. In <strong>Impostazioni → AI</strong> puoi modificare l'endpoint e il modello predefinito.</span>
+          <span class="lang-en">CiteMind connects to Ollama via the local REST API at <code>http://localhost:11434</code>. Ensure the Ollama service is running before using AI features. In <strong>Settings → AI</strong> you can change the default endpoint and model.</span>
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── Auto-update ─────────────────────────────────────────── -->
+<section style="background: var(--bg-surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+  <div class="container">
+    <div class="section-label">
+      <span class="lang-it">Aggiornamenti</span>
+      <span class="lang-en">Updates</span>
+    </div>
+    <h2 class="section-title">
+      <span class="lang-it">Auto-update da GitHub</span>
+      <span class="lang-en">Auto-update from GitHub</span>
+    </h2>
+    <p style="color: var(--fg-muted); max-width: 620px; margin-bottom: 24px;">
+      <span class="lang-it">CiteMind controlla automaticamente la presenza di nuove versioni al lancio, interrogando le GitHub Releases API. Quando è disponibile un aggiornamento, una notifica discreta appare in basso. Puoi aggiornare con un click senza uscire dall'applicazione.</span>
+      <span class="lang-en">CiteMind automatically checks for new versions at launch by querying the GitHub Releases API. When an update is available, a discreet notification appears at the bottom. You can update with one click without leaving the application.</span>
+    </p>
+    <a href="https://github.com/IkiMatt/CiteMind/releases" target="_blank" rel="noopener" class="btn github-btn">
+      <span class="lang-it">📋 Tutte le release su GitHub</span>
+      <span class="lang-en">📋 All releases on GitHub</span>
+    </a>
+  </div>
+</section>
+
+<!-- ── Supporta il progetto ───────────────────────────────── -->
+<section>
+  <div class="container">
+    <div class="support-section">
+      <h2>
+        <span class="lang-it">☕ Supporta il progetto</span>
+        <span class="lang-en">☕ Support the project</span>
+      </h2>
+      <p>
+        <span class="lang-it">CiteMind è un progetto open source sviluppato con passione. Se lo trovi utile per la tua ricerca, considera di offrire un caffè allo sviluppatore!</span>
+        <span class="lang-en">CiteMind is an open-source project developed with passion. If you find it useful for your research, consider buying the developer a coffee!</span>
+      </p>
+      <div class="support-btn-group">
+        <a href="https://buymeacoffee.com/ikimattia" target="_blank" rel="noopener" class="btn bmc-btn">☕ Buy Me a Coffee</a>
+        <a href="https://github.com/IkiMatt/CiteMind" target="_blank" rel="noopener" class="btn github-btn">
+          <span class="lang-it">⭐ Star su GitHub</span>
+          <span class="lang-en">⭐ Star on GitHub</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ─────────────────────────────────────────────── -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">Cite<span>Mind</span></div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="pipeline.html">Pipeline</a>
+        <a href="download.html">Download</a>
+        <a href="doc.html"><span class="lang-it">Documentazione</span><span class="lang-en">Documentation</span></a>
+        <a href="contributor.html"><span class="lang-it">Contribuisci</span><span class="lang-en">Contribute</span></a>
+        <a href="licence.html"><span class="lang-it">Licenza</span><span class="lang-en">Licence</span></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Mattia (IkiMatt) · <span class="lang-it">Rilasciato sotto licenza MIT</span><span class="lang-en">Released under MIT License</span></p>
+      <div class="footer-links">
+        <a href="https://github.com/IkiMatt/CiteMind" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://buymeacoffee.com/ikimattia" target="_blank" rel="noopener">Buy Me a Coffee</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>
+    <span class="lang-it">Il Creatore – CiteMind</span>
+    <span class="lang-en">Creator – CiteMind</span>
+  </title>
+  <meta name="description" class="lang-it" content="Conosci Mattia, il creatore di CiteMind. Sviluppatore appassionato di AI e ricerca accademica." />
+  <meta name="description" class="lang-en" content="Meet Mattia, the creator of CiteMind. Developer passionate about AI and academic research." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="lang.js"></script>
+</head>
+<body>
+
+<!-- ── Header ─────────────────────────────────────────────── -->
+<header>
+  <nav class="container">
+    <a href="index.html" class="nav-logo">Cite<span class="logo-accent">Mind</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="pipeline.html">Pipeline</a></li>
+      <li><a href="download.html">Download</a></li>
+      <li class="dropdown">
+        <span class="active">Contributor <span class="dropdown-caret">▾</span></span>
+        <ul class="dropdown-menu">
+          <li><a href="contributor.html"><span class="lang-it">Come contribuire</span><span class="lang-en">How to contribute</span></a></li>
+          <li><a href="creator.html"><span class="lang-it">Il Creatore</span><span class="lang-en">The Creator</span></a></li>
+        </ul>
+      </li>
+      <li><a href="doc.html">Doc</a></li>
+      <li><a href="licence.html"><span class="lang-it">Licenza</span><span class="lang-en">Licence</span></a></li>
+      <li class="lang-switcher">
+        <button class="lang-btn" data-lang="it">IT</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ── Page Hero ──────────────────────────────────────────── -->
+<section class="page-hero">
+  <div class="container">
+    <div class="section-label">
+      <span class="lang-it">Il Creatore</span>
+      <span class="lang-en">Creator</span>
+    </div>
+    <h1>
+      <span class="lang-it">Chi c'è dietro CiteMind</span>
+      <span class="lang-en">The person behind CiteMind</span>
+    </h1>
+    <p>
+      <span class="lang-it">Un progetto nato da un'esigenza reale: semplificare la gestione delle fonti accademiche con l'aiuto dell'intelligenza artificiale.</span>
+      <span class="lang-en">A project born from a real need: simplifying the management of academic sources with the help of artificial intelligence.</span>
+    </p>
+  </div>
+</section>
+
+<!-- ── Profile Card ───────────────────────────────────────── -->
+<section>
+  <div class="container">
+
+    <div class="profile-card">
+      <div class="profile-avatar">🧠</div>
+      <h1 class="profile-name">Mattia</h1>
+      <p class="profile-handle">@ikimattia · IkiMatt on GitHub</p>
+      <p class="profile-bio">
+        <span class="lang-it">Ho creato CiteMind per semplificare la gestione delle citazioni accademiche, integrando AI e visualizzazione dei dati in un'unica app desktop. Sono appassionato di Python, intelligenza artificiale e di come la tecnologia possa supportare la ricerca scientifica. CiteMind è il mio tentativo di costruire lo strumento che avrei voluto avere durante i miei studi.</span>
+        <span class="lang-en">I created CiteMind to simplify academic citation management, integrating AI and data visualisation into a single app. My goal is to give researchers a powerful and beautiful tool, completely free and open-source.</span>
+      </p>
+      <div class="profile-links">
+        <a href="https://github.com/IkiMatt" target="_blank" rel="noopener" class="btn github-btn">
+          ⭐ GitHub / IkiMatt
+        </a>
+        <a href="https://buymeacoffee.com/ikimattia" target="_blank" rel="noopener" class="btn bmc-btn">
+          ☕ Buy Me a Coffee
+        </a>
+      </div>
+    </div>
+
+    <!-- Storia del progetto -->
+    <div style="max-width: 720px; margin: 64px auto 0;">
+
+      <div class="section-label">
+        <span class="lang-it">La storia</span>
+        <span class="lang-en">The story</span>
+      </div>
+      <h2 class="section-title" style="font-size: 1.6rem;">
+        <span class="lang-it">Come è nato CiteMind</span>
+        <span class="lang-en">How CiteMind was born</span>
+      </h2>
+
+      <div class="doc-section" style="border-bottom: none; margin-bottom: 0;">
+        <p>
+          <span class="lang-it">CiteMind nasce dalla frustrazione di dover gestire decine di PDF accademici, copiare a mano i metadati e formattare le citazioni secondo stili bibliografici complessi. Ogni ricercatore conosce il dolore di trovare un articolo fondamentale citato in modo errato nella propria tesi.</span>
+          <span class="lang-en">CiteMind was born from the frustration of having to manage dozens of academic PDFs, copying metadata by hand and formatting citations according to complex bibliographic styles. Every researcher knows the pain of finding a fundamental article cited incorrectly in their thesis.</span>
+        </p>
+
+        <p style="margin-top: 16px;">
+          <span class="lang-it">L'idea iniziale era semplice: un'applicazione che leggesse un PDF e compilasse automaticamente la voce bibliografica. Ma col tempo si è evoluta in qualcosa di molto più ambizioso: una piattaforma che integra API accademiche, AI locale, Knowledge Graph e ricerca semantica in un'unica interfaccia desktop.</span>
+          <span class="lang-en">The initial idea was simple: an application that reads a PDF and automatically compiles the bibliographic entry. But over time it has evolved into something much more ambitious: a platform that integrates academic APIs, local AI, Knowledge Graph and semantic search into a single desktop interface.</span>
+        </p>
+
+        <p style="margin-top: 16px;">
+          <span class="lang-it">La scelta di Python e PySide6 non è stata casuale. Python permette di integrare rapidamente librerie di machine learning, parsing PDF, web scraping e molto altro. PySide6 offre un'interfaccia nativa di alta qualità su tutte le piattaforme desktop.</span>
+          <span class="lang-en">The choice of Python and PySide6 was not accidental. Python allows rapid integration of machine learning libraries, PDF parsing, web scraping and much more. PySide6 offers a high-quality native interface on all desktop platforms.</span>
+        </p>
+
+        <p style="margin-top: 16px;">
+          <span class="lang-it">CiteMind è rilasciato come open source perché credo che strumenti di questo tipo debbano essere accessibili a tutti i ricercatori, indipendentemente dalle risorse economiche. La scienza è un bene comune, e lo devono essere anche gli strumenti che la supportano.</span>
+          <span class="lang-en">CiteMind is released as open source because I believe that tools of this type should be accessible to all researchers, regardless of economic resources. Science is a common good, and the tools that support it must be too.</span>
+        </p>
+        
+        <p style="margin-top: 16px; font-style: italic;">
+          <span class="lang-it">"La ricerca dovrebbe concentrarsi sulla scoperta, non sulla formattazione."</span>
+          <span class="lang-en">"Research should focus on discovery, not formatting."</span>
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Tech stack -->
+    <div style="max-width: 720px; margin: 48px auto 0;">
+      <div class="section-label">Tech Stack</div>
+      <h2 class="section-title" style="font-size: 1.4rem;">
+        <span class="lang-it">Tecnologie usate in CiteMind</span>
+        <span class="lang-en">Technologies used in CiteMind</span>
+      </h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px;">
+        <span class="tag">Python 3.11+</span>
+        <span class="tag">PySide6</span>
+        <span class="tag">SQLite + FTS5</span>
+        <span class="tag">PyMuPDF</span>
+        <span class="tag">Ollama</span>
+        <span class="tag">sentence-transformers</span>
+        <span class="tag">scikit-learn</span>
+        <span class="tag">bibtexparser</span>
+        <span class="tag">Crossref API</span>
+        <span class="tag">OpenAlex API</span>
+        <span class="tag">Semantic Scholar API</span>
+        <span class="tag tag-green">Open Source</span>
+        <span class="tag tag-green">Privacy-first</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── Support ─────────────────────────────────────────────── -->
+<section>
+  <div class="container">
+    <div class="support-section">
+      <h2>
+        <span class="lang-it">☕ Supporta il lavoro di Mattia</span>
+        <span class="lang-en">☕ Support Mattia's work</span>
+      </h2>
+      <p>
+        <span class="lang-it">Sviluppare CiteMind richiede tempo e dedizione. Se l'app ti ha aiutato nella tua ricerca, un piccolo supporto fa una grande differenza!</span>
+        <span class="lang-en">Developing CiteMind requires time and dedication. If the app has helped you in your research, a small support makes a big difference!</span>
+      </p>
+      <div class="support-btn-group">
+        <a href="https://buymeacoffee.com/ikimattia" target="_blank" rel="noopener" class="btn bmc-btn">☕ Buy Me a Coffee</a>
+        <a href="https://github.com/IkiMatt/CiteMind" target="_blank" rel="noopener" class="btn github-btn">
+          <span class="lang-it">⭐ Star su GitHub</span>
+          <span class="lang-en">⭐ Star on GitHub</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ─────────────────────────────────────────────── -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">Cite<span>Mind</span></div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="pipeline.html">Pipeline</a>
+        <a href="download.html">Download</a>
+        <a href="doc.html"><span class="lang-it">Documentazione</span><span class="lang-en">Documentation</span></a>
+        <a href="contributor.html"><span class="lang-it">Contribuisci</span><span class="lang-en">Contribute</span></a>
+        <a href="licence.html"><span class="lang-it">Licenza</span><span class="lang-en">Licence</span></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Mattia (IkiMatt) · <span class="lang-it">Rilasciato sotto licenza MIT</span><span class="lang-en">Released under MIT License</span></p>
+      <div class="footer-links">
+        <a href="https://github.com/IkiMatt/CiteMind" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://buymeacoffee.com/ikimattia" target="_blank" rel="noopener">Buy Me a Coffee</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,22 +1,317 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Il Mio Sito Web</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 50px;
-            background-color: #f4f4f9;
-        }
-        h1 { color: #333; }
-        p { color: #666; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>
+    <span class="lang-it">CiteMind – Gestione Citazioni Accademiche con AI</span>
+    <span class="lang-en">CiteMind – AI-Powered Academic Citation Manager</span>
+  </title>
+  <meta name="description" class="lang-it" content="CiteMind è un'app desktop Python/PySide6 per la gestione di citazioni accademiche, con pipeline di import AI, Knowledge Graph e stili APA/MLA/Chicago." />
+  <meta name="description" class="lang-en" content="CiteMind is a Python/PySide6 desktop app for academic citation management, featuring an AI import pipeline, Knowledge Graph and APA/MLA/Chicago styles." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="lang.js"></script>
 </head>
 <body>
-    <h1>Benvenuto sul mio nuovo sito!</h1>
-    <p>Questo sito è ospitato gratuitamente su GitHub Pages.</p>
+
+<!-- ── Header ─────────────────────────────────────────────── -->
+<header>
+  <nav class="container">
+    <a href="index.html" class="nav-logo">Cite<span class="logo-accent">Mind</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="pipeline.html">Pipeline</a></li>
+      <li><a href="download.html">Download</a></li>
+      <li class="dropdown">
+        <span>Contributor <span class="dropdown-caret">▾</span></span>
+        <ul class="dropdown-menu">
+          <li><a href="contributor.html"><span class="lang-it">Come contribuire</span><span class="lang-en">How to contribute</span></a></li>
+          <li><a href="creator.html"><span class="lang-it">Il Creatore</span><span class="lang-en">The Creator</span></a></li>
+        </ul>
+      </li>
+      <li><a href="doc.html">Doc</a></li>
+      <li><a href="licence.html"><span class="lang-it">Licenza</span><span class="lang-en">Licence</span></a></li>
+      <li class="lang-switcher">
+        <button class="lang-btn" data-lang="it">IT</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ── Hero ───────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-badge">
+      <span class="lang-it">✦ Versione v0.3.4</span>
+      <span class="lang-en">✦ Version v0.3.4</span>
+    </div>
+    <h1>CiteMind</h1>
+    <p class="hero-tagline">
+      <span class="lang-it">Il gestore di citazioni accademiche potenziato dall'AI. Import intelligente, Knowledge Graph e stili bibliografici professionali in un'unica app desktop.</span>
+      <span class="lang-en">The academic citation manager powered by AI. Smart import, Knowledge Graph and professional bibliography styles in a single desktop app.</span>
+    </p>
+    <div class="hero-cta">
+      <a href="download.html" class="btn btn-primary btn-large">⬇ Download</a>
+      <a href="doc.html" class="btn btn-secondary btn-large">
+        <span class="lang-it">📖 Documentazione</span>
+        <span class="lang-en">📖 Documentation</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Perché CiteMind ─────────────────────────────────────── -->
+<section>
+  <div class="container">
+    <div class="section-label">
+      <span class="lang-it">Funzionalità principali</span>
+      <span class="lang-en">Key features</span>
+    </div>
+    <h2 class="section-title">
+      <span class="lang-it">Perché CiteMind?</span>
+      <span class="lang-en">Why CiteMind?</span>
+    </h2>
+    <p class="section-sub">
+      <span class="lang-it">Tutto ciò di cui hai bisogno per gestire la bibliografia accademica, dal primo import alla citazione formattata, in un'unica applicazione open source.</span>
+      <span class="lang-en">Everything you need to manage academic bibliography, from the first import to the formatted citation, in a single open-source application.</span>
+    </p>
+
+    <div class="feature-grid">
+
+      <div class="feature-card">
+        <span class="card-icon">🚀</span>
+        <h3>
+          <span class="lang-it">Import Intelligente</span>
+          <span class="lang-en">Smart Import</span>
+        </h3>
+        <p>
+          <span class="lang-it">Trascina PDF, file BibTeX, RIS, CSV o incolla un DOI. La pipeline automatica arricchisce i metadati interrogando Crossref, OpenAlex e Semantic Scholar, con AI fallback via Ollama.</span>
+          <span class="lang-en">Drag-and-drop PDFs, BibTeX, RIS, CSV files or paste a DOI. The automatic pipeline enriches metadata by querying Crossref, OpenAlex and Semantic Scholar, with AI fallback via Ollama.</span>
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <span class="card-icon">🤖</span>
+        <h3>
+          <span class="lang-it">Integrazione AI Locale</span>
+          <span class="lang-en">Local AI Integration</span>
+        </h3>
+        <p>
+          <span class="lang-it">Grazie a Ollama e il modello gemma4, CiteMind genera note a partire dal testo dei PDF, estrae topic tematici e arricchisce in locale i metadati mancanti, senza inviare dati a server esterni.</span>
+          <span class="lang-en">Using Ollama and the gemma4 model, CiteMind generates notes from PDF text, extracts thematic topics and locally enriches missing metadata — without sending data to external servers.</span>
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <span class="card-icon">📊</span>
+        <h3>
+          <span class="lang-it">Knowledge Graph</span>
+          <span class="lang-en">Knowledge Graph</span>
+        </h3>
+        <p>
+          <span class="lang-it">Visualizza le relazioni tra i tuoi documenti come un grafo interattivo con forza. I nodi rappresentano documenti e keyword; gli archi sono calcolati tramite Jaccard overlap e similarità semantica.</span>
+          <span class="lang-en">Visualise relationships between your documents as an interactive force-directed graph. Nodes represent documents and keywords; edges are computed via Jaccard overlap and semantic similarity.</span>
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <span class="card-icon">📄</span>
+        <h3>
+          <span class="lang-it">Stili di Citazione</span>
+          <span class="lang-en">Citation Styles</span>
+        </h3>
+        <p>
+          <span class="lang-it">Genera citazioni formattate in APA 7th, MLA, Chicago Author-Date, Harvard e Preistoria Alpina. Supporto a stili custom configurabili dall'utente. Export in DOCX, BibTeX, BibLaTeX e PDF.</span>
+          <span class="lang-en">Generate formatted citations in APA 7th, MLA, Chicago Author-Date, Harvard and Preistoria Alpina. Support for user-defined custom styles. Export to DOCX, BibTeX, BibLaTeX and PDF.</span>
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <span class="card-icon">🔍</span>
+        <h3>
+          <span class="lang-it">Ricerca Semantica</span>
+          <span class="lang-en">Semantic Search</span>
+        </h3>
+        <p>
+          <span class="lang-it">Oltre alla full-text search (SQLite FTS5 su titolo, autori, journal, note), CiteMind supporta la ricerca semantica tramite vettori embedding e cosine similarity per trovare documenti concettualmente correlati.</span>
+          <span class="lang-en">Beyond full-text search (SQLite FTS5 on title, authors, journal, notes), CiteMind supports semantic search via embedding vectors and cosine similarity to find conceptually related documents.</span>
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <span class="card-icon">🎨</span>
+        <h3>
+          <span class="lang-it">Temi e Personalizzazione</span>
+          <span class="lang-en">Themes & Customisation</span>
+        </h3>
+        <p>
+          <span class="lang-it">Quattro temi integrati: Dark, Light, Terminal e Ebook. Sidebar tematica, autosave, drag &amp; drop nativo, Command Palette (<kbd>Ctrl+Shift+P</kbd>) e interfaccia localizzata (i18n).</span>
+          <span class="lang-en">Four built-in themes: Dark, Light, Terminal and Ebook. Thematic sidebar, autosave, native drag & drop, Command Palette (Ctrl+Shift+P) and localised interface (i18n).</span>
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Pipeline Preview ────────────────────────────────────── -->
+<section style="background: var(--bg-surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+  <div class="container">
+    <div class="section-label">
+      <span class="lang-it">Come funziona</span>
+      <span class="lang-en">How it works</span>
+    </div>
+    <h2 class="section-title">
+      <span class="lang-it">Pipeline di Import in 8 Step</span>
+      <span class="lang-en">8-Step Import Pipeline</span>
+    </h2>
+    <p class="section-sub">
+      <span class="lang-it">Da un semplice drag&amp;drop a una voce bibliografica completa, arricchita e indicizzata, in pochi secondi.</span>
+      <span class="lang-en">From a simple drag&drop to a complete, enriched and indexed bibliographic entry, in seconds.</span>
+    </p>
+
+    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+      <span class="tag">Drop</span>
+      <span style="color: var(--fg-muted);">→</span>
+      <span class="tag">PDF Parse</span>
+      <span style="color: var(--fg-muted);">→</span>
+      <span class="tag">DOI Detect</span>
+      <span style="color: var(--fg-muted);">→</span>
+      <span class="tag">API Enrich</span>
+      <span style="color: var(--fg-muted);">→</span>
+      <span class="tag">AI Fallback</span>
+      <span style="color: var(--fg-muted);">→</span>
+      <span class="tag">Dedup</span>
+      <span style="color: var(--fg-muted);">→</span>
+      <span class="tag">Insert+Embed</span>
+      <span style="color: var(--fg-muted);">→</span>
+      <span class="tag">Graph Update</span>
+    </div>
+
+    <div style="margin-top: 32px;">
+      <a href="pipeline.html" class="btn btn-secondary">
+        <span class="lang-it">Esplora la pipeline →</span>
+        <span class="lang-en">Explore the pipeline →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Tipi di Entry ───────────────────────────────────────── -->
+<section>
+  <div class="container">
+    <div class="section-label">
+      <span class="lang-it">Struttura dati</span>
+      <span class="lang-en">Data structure</span>
+    </div>
+    <h2 class="section-title">
+      <span class="lang-it">Tre tipi di voce bibliografica</span>
+      <span class="lang-en">Three types of bibliographic entries</span>
+    </h2>
+    <p class="section-sub">
+      <span class="lang-it">CiteMind organizza le tue fonti in tre categorie distinte, ognuna ottimizzata per il proprio contesto d'uso.</span>
+      <span class="lang-en">CiteMind organises your sources into three distinct categories, each optimised for its context of use.</span>
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>
+              <span class="lang-it">Tipo</span>
+              <span class="lang-en">Type</span>
+            </th>
+            <th>
+              <span class="lang-it">Descrizione</span>
+              <span class="lang-en">Description</span>
+            </th>
+            <th>
+              <span class="lang-it">Pub Types supportati</span>
+              <span class="lang-en">Supported pub types</span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>📚 Bibliography</td>
+            <td>
+              <span class="lang-it">Fonti accademiche tradizionali: articoli, libri, capitoli, atti di convegno, report scientifici.</span>
+              <span class="lang-en">Traditional academic sources: articles, books, chapters, conference papers, scientific reports.</span>
+            </td>
+            <td><span class="tag">article</span> <span class="tag">book</span> <span class="tag">chapter</span> <span class="tag">conference</span> <span class="tag">report</span></td>
+          </tr>
+          <tr>
+            <td>🌐 Sitography</td>
+            <td>
+              <span class="lang-it">Riferimenti a risorse web, pagine online, dataset e risorse digitali con URL e data di accesso.</span>
+              <span class="lang-en">References to web resources, online pages, datasets and digital resources with URL and access date.</span>
+            </td>
+            <td><span class="tag">web</span></td>
+          </tr>
+          <tr>
+            <td>🎓 Tesi</td>
+            <td>
+              <span class="lang-it">Gestione dedicata per tesi di laurea, dottorato e specializzazione, con campi specifici per ateneo e relatore.</span>
+              <span class="lang-en">Dedicated management for bachelor's, master's and doctoral theses, with specific fields for institution and supervisor.</span>
+            </td>
+            <td><span class="tag">thesis</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ── Supporta il progetto ───────────────────────────────── -->
+<section>
+  <div class="container">
+    <div class="support-section">
+      <h2>
+        <span class="lang-it">☕ Supporta il progetto</span>
+        <span class="lang-en">☕ Support the project</span>
+      </h2>
+      <p>
+        <span class="lang-it">CiteMind è un progetto open source sviluppato con passione. Se lo trovi utile per la tua ricerca, considera di offrire un caffè allo sviluppatore!</span>
+        <span class="lang-en">CiteMind is an open-source project developed with passion. If you find it useful for your research, consider buying the developer a coffee!</span>
+      </p>
+      <div class="support-btn-group">
+        <a href="https://buymeacoffee.com/ikimattia" target="_blank" rel="noopener" class="btn bmc-btn">☕ Buy Me a Coffee</a>
+        <a href="https://github.com/IkiMatt/CiteMind" target="_blank" rel="noopener" class="btn github-btn">
+          <span class="lang-it">⭐ Star su GitHub</span>
+          <span class="lang-en">⭐ Star on GitHub</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ─────────────────────────────────────────────── -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">Cite<span>Mind</span></div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="pipeline.html">Pipeline</a>
+        <a href="download.html">Download</a>
+        <a href="doc.html"><span class="lang-it">Documentazione</span><span class="lang-en">Documentation</span></a>
+        <a href="contributor.html"><span class="lang-it">Contribuisci</span><span class="lang-en">Contribute</span></a>
+        <a href="licence.html"><span class="lang-it">Licenza</span><span class="lang-en">Licence</span></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Mattia (IkiMatt) · <span class="lang-it">Rilasciato sotto licenza MIT</span><span class="lang-en">Released under MIT License</span></p>
+      <div class="footer-links">
+        <a href="https://github.com/IkiMatt/CiteMind" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://buymeacoffee.com/ikimattia" target="_blank" rel="noopener">Buy Me a Coffee</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>
