@@ -9,7 +9,7 @@
  * - Se la data è passata -> si sposta automaticamente nella tabella "Archivio Incontri Precedenti".
  */
 
-const CITEMIND_EVENTS = [
+/*const CITEMIND_EVENTS = [
   {
     id: 1,
     date: "2026-10-15",               // Formato: AAAA-MM-GG (usato per l'ordinamento automatico)
