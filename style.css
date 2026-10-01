@@ -945,6 +945,86 @@ footer {
   font-weight: 700;
 }
 
+/* ── Events page ──────────────────────────────────────────── */
+.event-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  margin-bottom: 24px;
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.event-card:hover {
+  border-color: var(--accent-badge);
+  box-shadow: 0 8px 30px rgba(91,33,182,.2);
+}
+
+.event-date-box {
+  background: var(--bg-input);
+  border: 1px solid var(--border-input);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  text-align: center;
+  min-width: 110px;
+  flex-shrink: 0;
+}
+
+.event-date-box .month {
+  font-size: .8rem;
+  font-weight: 700;
+  color: var(--accent-badge);
+  text-transform: uppercase;
+  letter-spacing: .1em;
+}
+
+.event-date-box .day {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--fg-base);
+  line-height: 1.1;
+  margin: 4px 0;
+}
+
+.event-date-box .time {
+  font-size: .78rem;
+  color: var(--fg-muted);
+}
+
+.event-content {
+  flex: 1;
+}
+
+.event-meta {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.event-title {
+  font-size: 1.35rem;
+  color: var(--fg-base);
+  margin-bottom: 10px;
+}
+
+.event-desc {
+  font-size: .95rem;
+  color: var(--fg-muted);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.event-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
 /* ── Responsive ───────────────────────────────────────────── */
 @media (max-width: 900px) {
   .feature-grid,
@@ -976,6 +1056,23 @@ footer {
   .footer-bottom { flex-direction: column; align-items: flex-start; }
 
   .download-card { padding: 30px 20px; }
+
+  .event-card {
+    flex-direction: column;
+    padding: 24px;
+    gap: 18px;
+  }
+  .event-date-box {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 16px;
+  }
+  .event-date-box .day {
+    font-size: 1.6rem;
+    margin: 0;
+  }
 }
 
 @media (max-width: 480px) {
